@@ -1,10 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% load  static %}
+<html lang="en" class="js">
 
-</body>
+<body class="layout--splash landing" style="margin-bottom: 200.125px;">
+            {% block header %}
+                {% include "partials/header.html" %}
+            {% endblock %}
+
+			<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+			<div class="masthead">
+				<div class="masthead__inner-wrap">
+					<div class="masthead__menu">
+						<nav id="site-nav" class="greedy-nav">
+							<a class="site-title" href="http://liisim.com/">LIISim</a>
+							<ul class="visible-links">
+								<li class="masthead__menu-item"><a href="">About</a></li>
+								<li class="masthead__menu-item"><a href="http://liisim.com/development">Demo</a></li>
+								<li class="masthead__menu-item"><a href="{% url 'home' %}">Home</a></li>
+							</ul>
+							<button count="0" class="hidden"><div class="navicon"></div></button>
+							<ul class="hidden-links hidden"></ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+
+
+            {% block footer%}
+                {%include "partials/footer.html"%}
+            {% endblock %}
+
+			<script src="http://liisim.com/assets/js/main.min.js"></script>
+			<script>
+				(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+				})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+				ga('create', 'UA-106516580-1', 'auto');
+				ga('send', 'pageview');
+			</script>
+        </body>
 </html>
