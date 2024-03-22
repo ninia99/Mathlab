@@ -1,0 +1,92 @@
+<div id="main" role="main">
+    <div class="sidebar sticky">
+        <nav class="nav__list">
+            <input id="ac-toc" name="accordion-toc" type="checkbox" />
+            <label for="ac-toc">Toggle Menu</label>
+            <ul class="nav__items">
+                <li>
+                    <span class="nav__sub-title">About LIISim</span>
+
+                    <ul>
+                        <li><a href="http://liisim.com/about" class="active">Introduction</a></li>
+
+                        <li><a href="http://liisim.com/about#history" class="">History</a></li>
+
+                        <li><a href="http://liisim.com/about#motivation" class="">Motivation</a></li>
+
+                        <li><a href="http://liisim.com/about#screenshots" class="">Screenshots</a></li>
+
+                        <li><a href="http://liisim.com/about#license" class="">License</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <article class="page" itemscope="" itemtype="http://schema.org/CreativeWork">
+        <meta itemprop="headline" content="Introduction" />
+
+        <div class="page__inner-wrap">
+            <header>
+                <h1 class="page__title" itemprop="headline">Introduction</h1>
+            </header>
+
+            <section class="page__content" itemprop="text">
+                <p>Welcome to LIISim3, a modular signal processing toolbox for time-resolved laser-induced incandescence measurements written in C++ with the Qt-Framework.</p>
+
+                <h3 id="liisim-is-a-project-of">LIISim is a project of</h3>
+                <p>
+                    <a href="http://www.uni-due.de/ivg/rf" target="_blank"><img src="/assets/logos/IVG-Reactive-Fluids.png" alt="Institute for Combustion and Gas Dynamics - Reactive Fluids" style="height: 100px;" /></a>
+                    <a href="http://www.uni-due.de" target="_blank"><img src="/assets/logos/logo_UDE.png" alt="University of Duisburg-Essen" style="height: 100px;" /></a>
+                    <br />
+                </p>
+
+
+
+                <h2 id="history">History</h2>
+                <p>
+                    LIISim was so far known as <strong>console application (LIISim 1.5)</strong> and <strong>web interface (www.liisim.com)</strong>, developed by Max Hofmann between 2001 and 2007. The console application was written in C
+                    and the web interface was based on Perl. Modeling settings and file names for experimental data could be defined in DAT files and after execution of the console application, DAT output files containing the modeling
+                    results are created. <br />
+                    Later the console application was extended by a C++ based graphical user interface (GUI) by Tobias Terheiden and Martin Leschowski, which allowed the visualization of the modeling results from the DAT files (
+                    <strong>LIISim Desktop 1.02</strong> and <strong>LIISim Console 2.14</strong>). While the console application was distributed among the community, the desktop version was not published and was only internally used.
+                    <br />
+                    In 2013 the development of <strong>LIISim 3</strong> a new framework with object-oriented structure based on C++ was started by Raphael Mansmann designed for the application on individual material systems (soot and
+                    non-soot) with a modular implementation of signal processing steps and choice of heat-transfer models.
+                </p>
+
+                <h2 id="screenshots">Screenshots</h2>
+                    {% for post in posts %}
+                <h3 id="signal-processing">Signal Processing</h3>
+                <figure class="">
+                    <a
+                        href="/assets/screenshots/2018-03-26_V3.0.6_SignalProcessing.png"
+                        title="The modular signal processing toolbox allows processing of raw signals, 
+                                absolute signals and temperature traces. Processing steps can be individually
+                                set and arranged. Intermediate processing results can be visualized and analyzed with various plot tools.
+                        "
+                        class="image-popup"
+                    >
+                        <img src="http://liisim.com/assets/screenshots/2018-03-26_V3.0.6_SignalProcessing.png" alt="Signal Processing" />
+                    </a>
+
+                    <figcaption>
+                        The modular signal processing toolbox allows processing of raw signals, absolute signals and temperature traces. Processing steps can be individually set and arranged. Intermediate processing results can be
+                        visualized and analyzed with various plot tools.
+                    </figcaption>
+                </figure>
+
+                <h2 id="license">License</h2>
+                <p>
+                    LIISim is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any
+                    later version.
+                </p>
+
+                <p>
+                    LIISim is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+                    <a href="http://www.gnu.org/licenses/" target="_blank">GNU General Public License</a> for more details.
+                </p>
+            </section>
+        </div>
+    </article>
+</div>

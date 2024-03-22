@@ -5,7 +5,7 @@ from .models import Category, Post
 
 
 class CategoryView(generic.TemplateView):
-    template_name = 'home/mathlab.html'
+    template_name = 'home/home.html'
 
     def get(self, request, *args, **kwargs):
         category = get_object_or_404(Category, slug=kwargs['slug'])
@@ -16,13 +16,13 @@ class CategoryView(generic.TemplateView):
 
 
 class ListPostView(generic.ListView):
-    template_name = 'home/mathlab.html'
+    template_name = 'home/home.html'
     model = Post
     context_object_name = 'posts_list'
 
 
 class DetailPostView(generic.DetailView):
-    template_name = 'home/mathlab.html'
+    template_name = 'home/about.html'
     model = Post
     context_object_name = 'post'
 
