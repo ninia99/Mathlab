@@ -41,3 +41,16 @@ class Post(models.Model):
     class Meta:
         verbose_name = 'post'
         verbose_name_plural = 'posts'
+
+
+class Demo(models.Model):
+    target_molecule = models.CharField(max_length=250)
+    temperature = models.IntegerField()
+    pressure_bar = models.IntegerField()
+
+    def __str__(self):
+        return self.target_molecule
+
+    class Meta:
+        verbose_name = 'demo'
+        verbose_name_plural = 'demos'
