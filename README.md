@@ -1,4 +1,5 @@
-# About Mathlab Project
+# About 
+Mathlab Web Software - NanoEnergieTechnikZentrum
 		
 # Prerequisites  
 - Python >= 3.11.x
