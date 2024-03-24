@@ -47,6 +47,17 @@ class Demo(models.Model):
     target_molecule = models.CharField(max_length=250)
     temperature = models.IntegerField()
     pressure_bar = models.IntegerField()
+    wavelength_min = models.IntegerField()
+    wavelength_max = models.IntegerField()
+    wavelength_res = models.IntegerField()
+    gaussian_contribution = models.IntegerField()
+    Lorentzian_contribution = models.IntegerField()
+    bandpass_wavelength_min = models.IntegerField()
+    bandpass_wavelength_max = models.IntegerField()
+    precalculated_gas_phase = models.CharField(max_length=250)
+    user_defined_gas_phase = models.CharField(max_length=250)
+    species = models.TextField()
+    mole_fraction = models.IntegerField()
 
     def __str__(self):
         return self.target_molecule
