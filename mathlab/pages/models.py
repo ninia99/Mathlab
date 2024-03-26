@@ -4,7 +4,6 @@ from django.db import models
 
 class Category(models.Model):
     category_title = models.CharField(max_length=250)
-    slug = models.SlugField()
 
     def __str__(self):
         return self.category_title
@@ -28,7 +27,6 @@ class Tag(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=250)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    slug = models.SlugField()
     image = models.ImageField(upload_to='media/', blank=True)
     short_text = models.TextField()
     tags = models.ManyToManyField(Tag)
