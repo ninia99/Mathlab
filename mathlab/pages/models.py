@@ -3,37 +3,22 @@ from django.db import models
 
 
 class Category(models.Model):
-    category_title = models.CharField(max_length=250)
-    slug = models.SlugField(max_length=100, unique=True, blank=True)
+    name = models.CharField(max_length=200, null=False, blank=False)
 
     def __str__(self):
-        return self.category_title
+        return self.name
 
     class Meta:
-        verbose_name = 'category'
-        verbose_name_plural = 'categories'
-
-
-class Tag(models.Model):
-    title = models.CharField(max_length=250)
-
-    def __str__(self):
-        return self.title
-
-    class Meta:
-        verbose_name = 'tag'
-        verbose_name_plural = 'tags'
+        verbose_name = "Category"
+        verbose_name_plural = "Categories"
 
 
 class Post(models.Model):
+    description = models.TextField(max_length=25000, blank=True)
     title = models.CharField(max_length=250)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='media/', blank=True)
-    slug = models.SlugField(max_length=100, unique=True, blank=True)
     short_text = models.TextField()
-    tags = models.ManyToManyField(Tag)
-    created_date = models.DateTimeField(auto_now_add=True)
-    author = models.ForeignKey(User, related_name='user_post', on_delete=models.CASCADE)
+    category = models.ForeignKey("Category", related_name="posts", on_delete=models.CASCADE)
 
     def __str__(self):
         return str(self.title)

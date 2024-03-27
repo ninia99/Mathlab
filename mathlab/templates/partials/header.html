@@ -1,58 +1,23 @@
-{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
+	<meta charset="utf-8" />
+		<div class="masthead">
+				<div class="masthead__inner-wrap">
+					<div class="masthead__menu">
+						<nav id="site-nav" class="greedy-nav">
+							<a class="site-title" href="http://liisim.com/">LIISim</a>
+							<ul class="visible-links">
 
-		<title>{% block title %} LIISim - Signal processing tool for laser-induced incandesence {% endblock %}</title>
+								<li class="masthead__menu-item"><a href="">About</a></li>
+								<li class="masthead__menu-item"><a href="">Demo</a></li>
+								<li class="masthead__menu-item"><a href="{% url 'home_list' %}">Home</a></li>
+							</ul>
+							<button count="0" class="hidden"><div class="navicon"></div></button>
+							<ul class="hidden-links hidden"></ul>
+						</nav>
+					</div>
+				</div>
+		</div>
 
-		<meta name="description" content="A modular signal processing toolbox for laser-induced incandescence (LII) measurements" />
-        {% block meta_tags %}
-		<meta name="author" content="Raphael Mansmann" />
-		<meta property="og:locale" content="en" />
-		<meta property="og:site_name" content="LIISim - Signal processing tool for laser-induced incandesence" />
-		<meta property="og:title" content="LIISim - Signal processing tool for laser-induced incandesence" />
-		<link rel="canonical" href="http://liisim.com/" />
-		<meta property="og:url" content="http://liisim.com/" />
-		<meta property="og:description" content="A modular signal processing toolbox for laser-induced incandescence (LII) measurements" />
-		<meta property="og:image" content="http://liisim.com/assets/screenshots/2018-03-26_V3.0.6_SignalProcessing.png" />
-		<meta property="og:type" content="article" />
-		<meta property="article:published_time" content="2018-03-26T00:00:00+00:00" />
-        {% endblock %}
-
-
-        {% block scripts %}
-		<script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-56PGHYET3P&amp;cx=c&amp;_slc=1"></script>
-		<script type="application/ld+json">
-			{
-			  "@context" : "http://schema.org",
-			  "@type" : "Person",
-			  "name" : "University of Duisburg-Essen",
-			  "url" : "http://liisim.com",
-			  "sameAs" : null
-			}
-		</script>
-	    {% endblock %}
-
-		<link href="http://liisim.com/feed.xml" type="application/atom+xml" rel="alternate" title="LIISim - Signal processing tool for laser-induced incandesence Feed" />
-
-
-		<meta name="HandheldFriendly" content="True" />
-		<meta name="MobileOptimized" content="320" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-		<script>
-			document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
-		</script>
-
-        {% block styles %}
-            <link rel="stylesheet" href="http://liisim.com/assets/css/main.css">
-
-
-		<style id="fit-vids-style">
-			.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}
-		</style>
-        {% endblock %}
-
-	</head>
 </html>
