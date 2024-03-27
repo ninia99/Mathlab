@@ -1,33 +1,23 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
+from django.views.generic import TemplateView
+from django.db import models
 
-from .models import Category, Post, Demo
-
-
-class CategoryView(generic.TemplateView):
-    template_name = 'home/home.html'
-
-    def get(self, request, *args, **kwargs):
-        category = get_object_or_404(Category, slug=kwargs['slug'])
-        return self.render_to_response(context={
-            'category': category,
-            'posts_list': Post.objects.filter(category=category)
-        })
+from .models import Post
 
 
-class ListPostView(generic.ListView):
-    template_name = 'home/home.html'
-    model = Post
-    context_object_name = 'posts_list'
+def blog_view(request):
+    posts = Post.objects.all()
+    context = {
+        "posts": posts,
+    }
+    return render(request, template_name="home/home.html", context=context)
 
 
-class DetailPostView(generic.DetailView):
-    template_name = 'home/about.html'
-    model = Post
-    context_object_name = 'post'
+def blog_category(request, category):
+    context = {
+        "category": category,
+        "posts": Post
 
-
-class DemoView(generic.DetailView):
-    template_name = 'home/demo.html'
-    model = Demo
-    context_object_name = 'demo'
+    }
+    return render(request, template_name="home/home.html", context=context)

@@ -1,36 +1,17 @@
-{% load  static %}
-<html lang="en" class="js">
+<!-- templates/base.html -->
 
-<body class="layout--splash landing" style="margin-bottom: 200.125px;">
-            {% block header %}
-                {% include "partials/header.html" %}
-            {% endblock %}
-
-			<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
-			<div class="masthead">
-				<div class="masthead__inner-wrap">
-					<div class="masthead__menu">
-						<nav id="site-nav" class="greedy-nav">
-							<a class="site-title" href="http://liisim.com/">LIISim</a>
-							<ul class="visible-links">
-								<li class="masthead__menu-item"><a href="{% url 'about' user.post.pk  %}">About</a></li>
-								<li class="masthead__menu-item"><a href="{% url 'demo' %}">Demo</a></li>
-								<li class="masthead__menu-item"><a href="{% url 'home' %}">Home</a></li>
-							</ul>
-							<button count="0" class="hidden"><div class="navicon"></div></button>
-							<ul class="hidden-links hidden"></ul>
-						</nav>
-					</div>
-				</div>
-			</div>
-
-
-            {% block footer%}
-                {%include 'partials/footer.html'%}
-            {% endblock %}
-
-            {% block scripts %}
-			<script src="{% static 'js/main.min.js' %}"></script>
-			{% endblock %}
-        </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>My Personal Blog</title>
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+</head>
+<body>
+<h1>My Personal Blog</h1>
+<a href="{% url 'home_list' %}">Home</a>
+<hr>
+{% block page_title %}{% endblock page_title %}
+{% block page_content %}{% endblock page_content %}
+</body>
 </html>
