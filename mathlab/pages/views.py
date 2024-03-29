@@ -21,3 +21,6 @@ def blog_category(request, category):
 
     }
     return render(request, template_name="home/home.html", context=context)
+
+def  demo(request):
+    pass
