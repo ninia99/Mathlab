@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.views.generic import TemplateView
@@ -20,5 +21,10 @@ class PostDetailView(generic.DetailView):
     context_object_name = 'post'
 
 
-class DemoView(generic.CreateView):
-    pass
+class DemoView(LoginRequiredMixin, generic.CreateView):
+    models = Post
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.save()
+        return super.object.get_absolute_url()
