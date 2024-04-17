@@ -14,9 +14,9 @@ class Category(models.Model):
 
 
 class Post(models.Model):
-    description = models.TextField(max_length=25000, blank=True)
+    description = models.TextField()
     title = models.CharField(max_length=250)
-    image = models.ImageField(upload_to='media/', blank=True)
+    image = models.ImageField(upload_to='post/', blank=True)
     short_text = models.TextField()
     category = models.ForeignKey("Category", related_name="posts", on_delete=models.CASCADE)
 
@@ -28,6 +28,7 @@ class Post(models.Model):
         verbose_name_plural = 'posts'
 
 
+'''
 class Demo(models.Model):
     target_molecule = models.CharField(max_length=250)
     temperature = models.IntegerField()
@@ -50,3 +51,4 @@ class Demo(models.Model):
     class Meta:
         verbose_name = 'demo'
         verbose_name_plural = 'demos'
+'''
