@@ -1,11 +1,16 @@
 from django.views import generic
-
 from django.db import models
-from .models import Post
+from .models import Post, Contact, Category, About
 
 
 class AboutView(generic.TemplateView):
     template_name = "home/about.html"
+
+    def get_context_data(self, **kwargs):
+        context = {
+            'about': About.objects.first()
+        }
+        return context
 
 
 class PostDetailView(generic.DetailView):
@@ -27,3 +32,13 @@ class IndexView(generic.TemplateView):
 
 class ContactView(generic.TemplateView):
     template_name = "home/contact.html"
+
+    def get_context_data(self, **kwargs):
+        context = {
+            'contact': Contact.objects.first()
+        }
+        return context
+
+
+class DemoView(generic.TemplateView):
+    template_name = 'home/demo.html'

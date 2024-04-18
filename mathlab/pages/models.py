@@ -21,11 +21,38 @@ class Post(models.Model):
     category = models.ForeignKey("Category", related_name="posts", on_delete=models.CASCADE)
 
     def __str__(self):
-        return str(self.title)
+        return self.title
 
     class Meta:
         verbose_name = 'post'
         verbose_name_plural = 'posts'
+
+
+class About(models.Model):
+    title = models.CharField(max_length=250)
+    description = models.TextField()
+    image = models.ImageField(upload_to='about/')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'about'
+        verbose_name_plural = 'abouts'
+
+
+class Contact(models.Model):
+    number = models.CharField(max_length=150, null=True, blank=True)
+    email = models.EmailField(null=True, blank=True)
+    address = models.CharField(max_length=150, null=True, blank=True)
+    map = models.TextField(null=True, blank=True)
+
+    def __str__(self):
+        return self.email
+
+    class Meta:
+        verbose_name = 'contact'
+        verbose_name_plural = 'contacts'
 
 
 '''
