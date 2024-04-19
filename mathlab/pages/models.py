@@ -55,7 +55,6 @@ class Contact(models.Model):
         verbose_name_plural = 'contacts'
 
 
-
 class Demo(models.Model):
     target_molecule = models.CharField(max_length=250)
     temperature = models.IntegerField()
