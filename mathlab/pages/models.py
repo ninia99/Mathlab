@@ -55,7 +55,7 @@ class Contact(models.Model):
         verbose_name_plural = 'contacts'
 
 
-'''
+
 class Demo(models.Model):
     target_molecule = models.CharField(max_length=250)
     temperature = models.IntegerField()
@@ -78,4 +78,3 @@ class Demo(models.Model):
     class Meta:
         verbose_name = 'demo'
         verbose_name_plural = 'demos'
-'''
