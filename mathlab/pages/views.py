@@ -42,3 +42,7 @@ class ContactView(generic.TemplateView):
 
 class DemoView(generic.TemplateView):
     template_name = 'home/demo.html'
+
+
+class DownloadView(generic.TemplateView):
+    template_name = 'home/download.html'

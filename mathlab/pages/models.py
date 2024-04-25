@@ -16,7 +16,7 @@ class Category(models.Model):
 class Post(models.Model):
     description = models.TextField()
     title = models.CharField(max_length=250)
-    image = models.ImageField(upload_to='post/', blank=True)
+    image = models.ImageField(upload_to='about/', blank=True)
     short_text = models.TextField()
     category = models.ForeignKey("Category", related_name="posts", on_delete=models.CASCADE)
 
