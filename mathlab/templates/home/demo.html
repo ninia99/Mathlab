@@ -1,144 +1,55 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div id="content">
-                <h1 id="titelzeile">Simulation of LIF excitation spectra</h1>
-                <form action="/web/20210928063222/http://service.cfd.uni-due.de/LIFSim/mainsite/lifExciSpec.php" method="post">
-                    <h3>General Input</h3>
-                    <table border="1" width="1150">
-                        <colgroup>
-                            <col class="breiteSpalte">
-                        </colgroup>
-                        <tbody><tr>
-                            <td>Target molecule</td>
-                            <td> <input type="radio" name="targetMol" value="no" checked="checked"> NO <br>  
-                                <input type="radio" name="targetMol" value="o2"> O<sub>2</sub> </td>
-                            <td>Implemented Spectroscopy: <br> NO A-X (v'' = 0-11, v' = 0-1,  J'' = 0.5-50.5)<br> O<sub>2</sub> B-X (v'' = 0-14, v' = 0-15, N'' = 1-50)</td>
-                        </tr>
-
-                        <tr>
-                            <td>Temperature [K]</td>
-                            <td><input name="temp" type="text" size="10" value="296">
-                            </td>
-                            <td>Must be &lt; 5000 K</td>
-                        </tr>
-
-                        <tr>
-                            <td>Pressure [bar]</td>
-                            <td><input name="pressure" type="text" size="10" value="1">
-                            </td>
-                            <td></td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <p>Wavelength min. [nm or cm<sup>-1</sup>]</p> 
-                                <p>Wavelength max. [nm or cm<sup>-1</sup>]</p> 
-                                <p>Wavelength res. [nm or cm<sup>-1</sup>]</p> 
-                            </td>
-                            <td style="margin-bottom: 10px">
-                                <p><input name="waveMin" type="text" size="10" value="225"></p> 
-                                <p><input name="waveMax" type="text" size="10" value="225.1"></p> 
-                                <p><input name="waveRes" type="text" size="10" value="0.001">
-                                </p>
-                            </td>
-                            <td><p>Values &lt; 2000 are interpreted as [nm]. Stay within consistent unit system for these three parameters.</p><p><br> Resulting total number of data points must be ≤ 1001.</p></td>
-                        </tr>
-                    </tbody></table>
-                    LIF signals are simulated on a per-molecule basis. Variation of number density for different <i>T</i> and <i>p</i> is not calculated.
-                    <h3>Laser spectral distribution (Voigt profile)</h3>
-                    <table border="1" width="1150">
-                        <colgroup>
-                            <col class="breiteSpalte">
-                        </colgroup>
-                        <tbody><tr>
-                            <td>Gaussian contribution HWHM [cm<sup>-1</sup>]</td>
-                            <td><input name="gaussContri" type="text" size="10" value="0.1">
-                            </td>
-                            <td>Must be &gt; 0</td>
-                        </tr>
-
-                        <tr>
-                            <td>Lorentzian contribution HWHM [cm<sup>-1</sup>]</td>
-                            <td><input name="lorentzContri" type="text" size="10" value="0">
-                            </td>
-                            <td></td>
-                        </tr>
-                    </tbody></table>
-
-                    <h3>Rectangular detection bandpass</h3>	
-                    <table border="1" width="1150">
-                        <colgroup>
-                            <col class="breiteSpalte">
-                        </colgroup>
-                        <tbody>
-                        <tr>
-                            <td><p>Bandpass wavelength min. [nm or cm<sup>-1</sup>]</p>
-                                <p>Bandpass wavelength max. [nm or cm<sup>-1</sup>]</p> </td>
-                            <td>
-                                <p><input name="baWaveMin" type="text" size="10" value="100"></p>
-                                <p><input name="baWaveMax" type="text" size="10" value="1000"></p>
-                            </td>
-                            <td>
-                                <p>Values &lt; 2000 are interpreted as [nm].</p> 
-                                <p>Stay within consistent unit system for these two parameters.</p>
-                            </td>
-                        </tr>
-                    </tbody>
-                    </table>
-                    
-<h3 onload="initform();">Gasphase Composition</h3>
-<p class="abstand">Needed for simulating pressure broadening and shifting.</p>
-<table border="1" width="1250">
-    <tbody><tr>
-        <td> <input name="gasComp" value="preDefine" type="radio" checked="checkedonsubmit='set1()'" onclick="set1();"></td>
-        <td>Precalculated gasphase composition: equilibrium flame exhaust gas, phi = 1.0 CH4/air, T = 1200-3000K</td>
-    </tr>
-    <tr>
-        <td><input name="gasComp" value="userDefine" type="radio" onclick="set2();"></td>
-        <td>User-defined gasphase composition </td>
-    </tr>
-</tbody></table>
-<table id="gasComp" class="horizonatlTabelle" border="1" width="1000">
-    <tbody>
-    <tr>
-        <td style="text-align: left;">Species </td>
-        <td style="text-align: center;">N<sub>2</sub> </td>
-        <td style="text-align: center;">O<sub>2</sub> </td>
-        <td style="text-align: center;">H<sub>2</sub>O </td>
-        <td style="text-align: center;">CO<sub>2</sub> </td>
-        <td style="text-align: center;">CO </td>
-        <td style="text-align: center;">CH<sub>4</sub> </td>
-        <td style="text-align: center;">Ar </td>
-    </tr>
-
-    <tr>
-        <td style="text-align: left;">Mole fraction </td>
-        <td><input id="n2Calc" name="n2Calc" size="5" type="text" value="0.8"> </td>
-
-        <td><input id="o2Calc" name="o2Calc" size="5" type="text" value="0.2"> </td>
-
-        <td><input id="h2oCalc" name="h2oCalc" size="5" type="text" value="0.0"> </td>
-
-        <td><input id="co2Calc" name="co2Calc" size="5" type="text" value="0.0"> </td>
-
-        <td><input id="coCalc" name="coCalc" size="5" type="text" value="0.0"> </td>
-
-        <td><input id="ch4Calc" name="ch4Calc" size="5" type="text" value="0.0"> </td>
-
-        <td><input id="arCalc" name="arCalc" size="5" type="text" value="0.0"> </td>
-    </tr>
-</tbody>
-</table>
-                    <div id="buttonPos">
-                        <input type="submit" name="saveCalc" value="Calculate">
-                        <input type="submit" name="reset" value="Reset">
-                    </div>
-                </form>
-                <div id="picture">
-                    <div id="picturePos">
-                    </div>
-                    <div id="abstandHalterBottom"></div>
-                </div>
+<div class="container">
+    <div class="row">
+        <!-- Left column -->
+        <div class="col-md-6">
+            <div data-mdb-input-init class="form-outline" style="width: 22rem;">
+                <label class="form-label" for="typeNumberLeft">Number input</label>
+                <input step="0.01" value="15.25" type="number" id="typeNumberLeft" class="form-control" />
             </div>
+            <div data-mdb-input-init class="form-outline" style="width: 22rem;">
+                <label class="form-label" for="typeNumberLeft">Number input</label>
+                <input step="0.01" value="15.25" type="number" id="typeNumberLeft" class="form-control" />
+            </div>
+              <div data-mdb-input-init class="form-outline" style="width: 22rem;">
+                <label class="form-label" for="typeNumberLeft">Number input</label>
+                <input step="0.01" value="15.25" type="number" id="typeNumberLeft" class="form-control" />
+            </div>
+              <div data-mdb-input-init class="form-outline" style="width: 22rem;">
+                <label class="form-label" for="typeNumberLeft">Number input</label>
+                <input step="0.01" value="15.25" type="number" id="typeNumberLeft" class="form-control" />
+            </div>
+              <div data-mdb-input-init class="form-outline" style="width: 22rem;">
+                <label class="form-label" for="typeNumberLeft">Number input</label>
+                <input step="0.01" value="15.25" type="number" id="typeNumberLeft" class="form-control" />
+            </div>
+        </div>
+        <!-- Right column -->
+        <div class="col-md-6">
+            <div data-mdb-input-init class="form-outline" style="width: 22rem;">
+                <label class="form-label" for="typeNumberRight">Number input</label>
+                <input step="10" value="0" type="number" id="typeNumberRight" class="form-control" />
+            </div>
+             <div data-mdb-input-init class="form-outline" style="width: 22rem;">
+                <label class="form-label" for="typeNumberRight">Number input</label>
+                <input step="10" value="0" type="number" id="typeNumberRight" class="form-control" />
+            </div>
+             <div data-mdb-input-init class="form-outline" style="width: 22rem;">
+                <label class="form-label" for="typeNumberRight">Number input</label>
+                <input step="10" value="0" type="number" id="typeNumberRight" class="form-control" />
+            </div>
+             <div data-mdb-input-init class="form-outline" style="width: 22rem;">
+                <label class="form-label" for="typeNumberRight">Number input</label>
+                <input step="10" value="0" type="number" id="typeNumberRight" class="form-control" />
+            </div>
+             <div data-mdb-input-init class="form-outline" style="width: 22rem;">
+                 <label class="form-label" for="typeNumberRight">Number input</label>
+                <input step="10" value="0" type="number" id="typeNumberRight" class="form-control" />
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock content %}
