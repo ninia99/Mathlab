@@ -16,7 +16,7 @@ class Category(models.Model):
 class Post(models.Model):
     description = models.TextField()
     title = models.CharField(max_length=250)
-    image = models.ImageField(upload_to='about/', blank=True)
+    image = models.ImageField(upload_to='about/')
     short_text = models.TextField()
     category = models.ForeignKey("Category", related_name="posts", on_delete=models.CASCADE)
 
@@ -29,6 +29,20 @@ class Post(models.Model):
 
 
 class About(models.Model):
+    introduction = models.TextField()
+    license = models.TextField(null=True, blank=True)
+    screenshots = models.ManyToManyField('pages.Screenshots')
+    history = models.TextField()
+
+    def __str__(self):
+        return 'About'
+
+    class Meta:
+        verbose_name = 'about'
+        verbose_name_plural = 'abouts'
+
+
+class Screenshots(models.Model):
     title = models.CharField(max_length=250)
     description = models.TextField()
     image = models.ImageField(upload_to='about/')
@@ -37,8 +51,8 @@ class About(models.Model):
         return self.title
 
     class Meta:
-        verbose_name = 'about'
-        verbose_name_plural = 'abouts'
+        verbose_name = 'screenshot'
+        verbose_name_plural = 'screenshots'
 
 
 class Contact(models.Model):

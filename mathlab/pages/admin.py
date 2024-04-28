@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Post, Category, Contact, About
+from .models import Post, Category, Contact, About, Screenshots
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -20,10 +20,15 @@ class ContactAdmin(admin.ModelAdmin):
 
 
 class AboutAdmin(admin.ModelAdmin):
-    list_display = ('title',)
+    pass
+
+
+class ScreenshotsAdmin(admin.ModelAdmin):
+    pass
 
 
 admin.site.register(Post, PostAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Contact, ContactAdmin)
 admin.site.register(About, AboutAdmin)
+admin.site.register(Screenshots, ScreenshotsAdmin)

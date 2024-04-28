@@ -1,20 +1,71 @@
 {% extends 'base.html' %}
 
 {% block content %}
-        <section id="about">
-            <div class="container px-4">
-                <div class="row gx-4 justify-content-center">
+        
+        <section id="introduction" style="padding-top: 3rem; padding-bottom: 3rem">
+            <div class="container ">
+                <div class="row justify-content-center">
                     <div class="col-lg-3">
                         <nav class="nav flex-column">
-                      <a class="nav-link active" aria-current="page" href="#">Introduction</a>
-                      <a class="nav-link" href="#">History</a>
-                      <a class="nav-link" href="#">Screenshots</a>
-                            <a class="nav-link" href="#">Link</a>
+                      <a class="nav-link active" aria-current="page" href="#introduction">Introduction</a>
+                      <a class="nav-link" href="#history">History</a>
+                      <a class="nav-link" href="#screenshots">Screenshots</a>
+                            <a class="nav-link" href="#license">license</a>
                         </nav>
                     </div>
                     <div class="col-lg-8">
-                        <h2>{{ post.title }}</h2>
-                        <p class="lead">{{ post.description }}</p>
+                        <h2>INTRODUCTION</h2>
+                        <p class="lead">{{ about.introduction }}</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section  id="history" style="padding-top: 3rem; padding-bottom: 3rem">
+            <div class="container ">
+                <div class="row  justify-content-center">
+                    <div class="col-lg-3">
+                   
+                    </div>
+                    <div class="col-lg-8">
+                        <h2>HISTORY</h2>
+                        <p class="lead">{{ about.history }}</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section  id="screenshots" style="padding-top: 3rem; padding-bottom: 3rem">
+            <div class="container ">
+                <div class="row  justify-content-center">
+                    <div class="col-lg-3">
+                   
+                    </div>
+                    <div class="col-lg-8">
+                        <h2>SCREENSHOTS</h2>
+                       {% for screenshot in about.screenshots.all %}
+                           <div class="card mb-5">
+                           <h5 class="card-title">{{  screenshot.title }}</h5>
+                        <img class="card-img-top" src="{{ screenshot.image.url }}" alt={{ screenshot.title }}>
+                               <div class="card-body">
+                            <p class="card-text">{{ screenshot.description}}</p>
+        </div>
+        </div>
+                        {% endfor %}
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+         <section  id="license" style="padding-top: 3rem; padding-bottom: 3rem">
+            <div class="container">
+                <div class="row  justify-content-center">
+                    <div class="col-lg-3">
+                   
+                    </div>
+                    <div class="col-lg-8">
+                        <h2>LICENSE</h2>
+                        <p class="lead">{{ about.license }}</p>
                         
                     </div>
                 </div>
