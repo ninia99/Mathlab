@@ -18,6 +18,13 @@ class PostDetailView(generic.DetailView):
     model = Post
     context_object_name = 'post'
 
+    def get_context_data(self, **kwargs):
+        context = {
+            'post': Post.objects.first()
+        }
+
+        return context
+
 
 class IndexView(generic.TemplateView):
     template_name = "home/index.html"
