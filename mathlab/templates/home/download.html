@@ -1,2 +1,12 @@
 {% extends 'base.html' %}
 
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h4>Download source of code</h4>
+                 <a href="{{ download.link|safe }}" target="_blank" >{{download.link|safe}}</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -91,3 +91,26 @@ class Demo(models.Model):
     class Meta:
         verbose_name = 'demo'
         verbose_name_plural = 'demos'
+
+
+class Download(models.Model):
+    link = models.TextField()
+
+    def __str__(self):
+        return self.link
+
+    class Meta:
+        verbose_name = 'link'
+        verbose_name_plural = 'links'
+
+
+class Logo(models.Model):
+    link = models.URLField()
+    image = models.ImageField(upload_to='logo/')
+
+    def __str__(self):
+        return self.link
+
+    class Meta:
+        verbose_name = 'logo'
+        verbose_name_plural = 'logos'
