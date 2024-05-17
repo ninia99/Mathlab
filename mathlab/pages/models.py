@@ -106,7 +106,9 @@ class Download(models.Model):
 
 class Logo(models.Model):
     link = models.URLField()
+    link1 = models.URLField()
     image = models.ImageField(upload_to='logo/')
+    image1 = models.ImageField(upload_to='logo/')
 
     def __str__(self):
         return self.link
