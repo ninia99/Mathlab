@@ -2,13 +2,13 @@
 {% load static %}
 
 {% block content %}
-    <section>
+    <section style="padding-bottom: 0; padding-top: 2rem">
     <div class="container">
         {% if logos  %}
         <div class="row">
             <div class="col-lg-2"></div>
-            <div class="col-lg-2">
-                <span class="fs-6"> <strong>LIFSim4.0 is a project of</strong></span>
+            <div class="col-lg-2" style="padding-bottom: 22px">
+                <span class="fs-6" style="padding-bottom: 2px"> <strong>LIFSim4.0 is a project of</strong></span>
             </div>
         </div>
         <div class="row">
@@ -18,9 +18,6 @@
                 
                 <a href="{{ logo.link }}" target="_blank">
                     <img src="{{ logo.image.url }}" alt="logo" height="50" width="200"> </a>
-                    <a href="{{ logo.link1 }}" target="_blank">
-                    <img src="{{ logo.image1.url }}" alt="logo" height="100" width="200">
-                </a>
             </div>
                 {% endfor %}
         </div>

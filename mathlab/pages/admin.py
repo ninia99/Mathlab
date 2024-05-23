@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django_summernote.admin import SummernoteModelAdmin
 
 from .models import Post, Category, Contact, About, Screenshots, Download, Logo
 
@@ -19,8 +20,8 @@ class ContactAdmin(admin.ModelAdmin):
     list_display = ('email',)
 
 
-class AboutAdmin(admin.ModelAdmin):
-    pass
+class AboutAdmin(SummernoteModelAdmin):
+    summernote_fields = ['introduction']
 
 
 class ScreenshotsAdmin(admin.ModelAdmin):

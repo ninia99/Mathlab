@@ -15,8 +15,10 @@
                     </div>
                     <div class="col-lg-8">
                         <h2>INTRODUCTION</h2>
-                        <p class="lead">{{ about.introduction }}</p>
-                        
+                        <p class="lead">{{ about.introduction|safe }}</p>
+                        {% if about.pdf_title and about.pdf %}
+                        <p><a href="{{ about.pdf.url }}" target="_blank"><strong>{{ about.pdf_title }} </strong></a></p>
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -57,7 +59,7 @@
                 </div>
             </div>
         </section>
-         <section  id="license" style="padding-top: 3rem; padding-bottom: 3rem">
+         <section  id="license" style="padding-top: 3rem; padding-bottom: 15rem !important;">
             <div class="container">
                 <div class="row  justify-content-center">
                     <div class="col-lg-3">

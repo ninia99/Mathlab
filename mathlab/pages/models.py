@@ -33,6 +33,8 @@ class About(models.Model):
     license = models.TextField(null=True, blank=True)
     screenshots = models.ManyToManyField('pages.Screenshots')
     history = models.TextField()
+    pdf = models.FileField(upload_to='files/', null=True, blank=True)
+    pdf_title = models.TextField(null=True, blank=True)
 
     def __str__(self):
         return 'About'
@@ -106,9 +108,8 @@ class Download(models.Model):
 
 class Logo(models.Model):
     link = models.URLField()
-    link1 = models.URLField()
     image = models.ImageField(upload_to='logo/')
-    image1 = models.ImageField(upload_to='logo/')
+
 
     def __str__(self):
         return self.link
