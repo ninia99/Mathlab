@@ -16,7 +16,7 @@ class Category(models.Model):
 class Post(models.Model):
     description = models.TextField()
     title = models.CharField(max_length=250)
-    image = models.ImageField(upload_to='about/', blank=True)
+    image = models.ImageField(upload_to='about/')
     short_text = models.TextField()
     category = models.ForeignKey("Category", related_name="posts", on_delete=models.CASCADE)
 
@@ -29,6 +29,22 @@ class Post(models.Model):
 
 
 class About(models.Model):
+    introduction = models.TextField()
+    license = models.TextField(null=True, blank=True)
+    screenshots = models.ManyToManyField('pages.Screenshots')
+    history = models.TextField()
+    pdf = models.FileField(upload_to='files/', null=True, blank=True)
+    pdf_title = models.TextField(null=True, blank=True)
+
+    def __str__(self):
+        return 'About'
+
+    class Meta:
+        verbose_name = 'about'
+        verbose_name_plural = 'abouts'
+
+
+class Screenshots(models.Model):
     title = models.CharField(max_length=250)
     description = models.TextField()
     image = models.ImageField(upload_to='about/')
@@ -37,8 +53,8 @@ class About(models.Model):
         return self.title
 
     class Meta:
-        verbose_name = 'about'
-        verbose_name_plural = 'abouts'
+        verbose_name = 'screenshot'
+        verbose_name_plural = 'screenshots'
 
 
 class Contact(models.Model):
@@ -77,3 +93,27 @@ class Demo(models.Model):
     class Meta:
         verbose_name = 'demo'
         verbose_name_plural = 'demos'
+
+
+class Download(models.Model):
+    link = models.TextField()
+
+    def __str__(self):
+        return self.link
+
+    class Meta:
+        verbose_name = 'link'
+        verbose_name_plural = 'links'
+
+
+class Logo(models.Model):
+    link = models.URLField()
+    image = models.ImageField(upload_to='logo/')
+
+
+    def __str__(self):
+        return self.link
+
+    class Meta:
+        verbose_name = 'logo'
+        verbose_name_plural = 'logos'

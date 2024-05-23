@@ -1,55 +1,80 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container">
+    
+<div class="container" style="padding-top: 3rem; padding-bottom: 15rem !important;">
     <div class="row">
         <!-- Left column -->
-        <div class="col-md-6">
-            <div data-mdb-input-init class="form-outline" style="width: 22rem;">
-                <label class="form-label" for="typeNumberLeft">Number input</label>
-                <input step="0.01" value="15.25" type="number" id="typeNumberLeft" class="form-control" />
+        
+        <div class="col-md-3">
+            <h5>Add species in .mat format under ./lines and edit selectLines, revise documentation</h5>
+            <div class="input-group-sm mb-4">
+                <label for="species" class="form-label">Species</label>
+                <select class="form-control" name="species" id="species">
+                    <option value="Sio">Sio</option>
+                    <option value="NO">NO</option>
+                    <option value="OH">OH</option>
+                    <option value="O2">O2</option>
+                </select>
             </div>
-            <div data-mdb-input-init class="form-outline" style="width: 22rem;">
-                <label class="form-label" for="typeNumberLeft">Number input</label>
-                <input step="0.01" value="15.25" type="number" id="typeNumberLeft" class="form-control" />
-            </div>
-              <div data-mdb-input-init class="form-outline" style="width: 22rem;">
-                <label class="form-label" for="typeNumberLeft">Number input</label>
-                <input step="0.01" value="15.25" type="number" id="typeNumberLeft" class="form-control" />
-            </div>
-              <div data-mdb-input-init class="form-outline" style="width: 22rem;">
-                <label class="form-label" for="typeNumberLeft">Number input</label>
-                <input step="0.01" value="15.25" type="number" id="typeNumberLeft" class="form-control" />
-            </div>
-              <div data-mdb-input-init class="form-outline" style="width: 22rem;">
-                <label class="form-label" for="typeNumberLeft">Number input</label>
-                <input step="0.01" value="15.25" type="number" id="typeNumberLeft" class="form-control" />
-            </div>
-        </div>
-        <!-- Right column -->
-        <div class="col-md-6">
-            <div data-mdb-input-init class="form-outline" style="width: 22rem;">
-                <label class="form-label" for="typeNumberRight">Number input</label>
-                <input step="10" value="0" type="number" id="typeNumberRight" class="form-control" />
-            </div>
-             <div data-mdb-input-init class="form-outline" style="width: 22rem;">
-                <label class="form-label" for="typeNumberRight">Number input</label>
-                <input step="10" value="0" type="number" id="typeNumberRight" class="form-control" />
-            </div>
-             <div data-mdb-input-init class="form-outline" style="width: 22rem;">
-                <label class="form-label" for="typeNumberRight">Number input</label>
-                <input step="10" value="0" type="number" id="typeNumberRight" class="form-control" />
-            </div>
-             <div data-mdb-input-init class="form-outline" style="width: 22rem;">
-                <label class="form-label" for="typeNumberRight">Number input</label>
-                <input step="10" value="0" type="number" id="typeNumberRight" class="form-control" />
-            </div>
-             <div data-mdb-input-init class="form-outline" style="width: 22rem;">
-                 <label class="form-label" for="typeNumberRight">Number input</label>
-                <input step="10" value="0" type="number" id="typeNumberRight" class="form-control" />
+            <h5>Laser parameters / 1/cm</h5>
+            <div class="input-group-sm mb-4">
+                <label class="form-label" for="typeNumberLeft">Start wave number for excitation</label>
+                <input step="0.01"  type="number" id="typeNumberLeft" class="form-control" />
+                <label class="form-label" for="typeNumberLeft">End wave number for excitation</label>
+                <input step="0.01"  type="number" id="typeNumberLeft" class="form-control" />
+                <label class="form-label" for="typeNumberLeft">Step size of laser</label>
+                <input step="0.01"  type="number" id="typeNumberLeft" class="form-control" />
+                <label class="form-label" for="typeNumberLeft">Laser HWHM Gaussian</label>
+                <input step="0.01"  type="number" id="typeNumberLeft" class="form-control" />
+                <label class="form-label" for="typeNumberLeft">Laser HWHM Lorentzian</label>
+                <input step="0.01"  type="number" id="typeNumberLeft" class="form-control" />
             </div>
         </div>
+        <div class="col-md-3">
+            <h5>Temperature / k </h5>
+            <div class="input-group-sm mb-4">
+                <label class="form-label" for="typeNumberLeft">Start wave number for excitation</label>
+                <input step="0.01"  type="number" id="typeNumberLeft" class="form-control" />
+            </div>
+        </div>
+        <div class="col-md-3">
+            <h5>Emission line / 1/cm</h5>
+            <div class="input-group-sm mb-4">
+                <label class="form-label" for="typeNumberLeft">Line Lorentzian</label>
+                <input step="0.01" type="number" id="typeNumberLeft" class="form-control" />
+                <label class="form-label" for="typeNumberLeft">Emission spectrum shift</label>
+                <input step="0.01" type="number" id="typeNumberLeft" class="form-control" />
+                <label class="form-label" for="typeNumberLeft">Spectrum scale</label>
+                <input step="0.01"  type="number" id="typeNumberLeft" class="form-control" />
+                <label class="form-label" for="typeNumberLeft">Spectrum offset</label>
+                <input step="0.01"  type="number" id="typeNumberLeft" class="form-control" />
+            </div>
+        </div>
+        <div class="col-md-3">
+            <h5>Detection spectrometer / 1/cm</h5>
+             <div class="input-group-sm mb-4">
+                <label class="form-label" for="typeNumberLeft">Start wave number for emission</label>
+                <input step="0.01"  type="number" id="typeNumberLeft" class="form-control" />
+                <label class="form-label" for="typeNumberLeft">End wave number for emission</label>
+                <input step="0.01" type="number" id="typeNumberLeft" class="form-control" />
+                <label class="form-label" for="typeNumberLeft">Step size for emission spectrum</label>
+                <input step="0.01"  type="number" id="typeNumberLeft" class="form-control" />
+                <label class="form-label" for="typeNumberLeft">Guassian for spectrometer line shape</label>
+                <input step="0.01"  type="number" id="typeNumberLeft" class="form-control" />
+                 <label class="form-label" for="typeNumberLeft">Lorentzian for spectrometer line width</label>
+                <input step="0.01"  type="number" id="typeNumberLeft" class="form-control" />
+            </div>
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <button class="btn-primary">calculate</button>
+                </div>
+            </div>
+        </div>
+        
     </div>
 </div>
+
 
 {% endblock content %}

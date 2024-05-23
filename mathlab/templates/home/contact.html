@@ -1,52 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <main>
+    <main style="padding-bottom: 15rem; padding-top: 5rem !important;">
     <div class="container py-5">
       <div class="row g-5">
         <!-- Contact Information Block -->
-        <div class="col-xl-6">
-          <div class="row row-cols-md-2 g-4">
-            <div class="aos-item" data-aos="fade-up" data-aos-delay="200">
-              <div class="aos-item__inner">
-                <div class="bg-light hvr-shutter-out-horizontal d-block p-3">
-                  <div class="d-flex justify-content-start">
-                    <i class="fa-solid fa-envelope h3 pe-2"></i>
-                    <span class="h5">Email</span>
-                  </div>
-                  <span>{{ contact.email }}</span>
-                </div>
-              </div>
-            </div>
-            <div class="aos-item" data-aos="fade-up" data-aos-delay="400">
-              <div class="aos-item__inner">
-                <div class="bg-light hvr-shutter-out-horizontal d-block p-3">
-                  <div class="d-flex justify-content-start">
-                    <i class="fa-solid fa-phone h3 pe-2"></i>
-                    <span class="h5">Phone</span>
-                  </div>
-                  <span>{{ contact.number }}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="aos-item mt-4" data-aos="fade-up" data-aos-delay="600">
-            <div class="aos-item__inner">
-              <div class="bg-light hvr-shutter-out-horizontal d-block p-3">
-                <div class="d-flex justify-content-start">
-                  <i class="fa-solid fa-location-pin h3 pe-2"></i>
-                  <span class="h5">Office location</span>
-                </div>
-                <span>{{ contact.address }}</span>
-              </div>
-            </div>
-          </div>
-          <div class="aos-item" data-aos="fade-up" data-aos-delay="800">
-            <div class="mt-4 w-100 aos-item__inner">
-              {{ contact.map|safe}}
-            </div>
-          </div>
-        </div>
+        
 
         <!-- Contact Form Block -->
         <div class="col-xl-6">
