@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
     
 <div class="container" style="padding-top: 3rem; padding-bottom: 15rem !important;">
     <div class="row">
-        <!-- Left column -->
         
         <div class="col-md-3">
             <h5>Add species in .mat format under ./lines and edit selectLines, revise documentation</h5>
@@ -74,7 +74,19 @@
         </div>
         
     </div>
+    <div class="row">
+        <div class="col-md-12">
+            <canvas id="chart"></canvas>
+        </div>
+    </div>
 </div>
 
 
 {% endblock content %}
+
+{% block scripts %}
+    {{ block.super }}
+    <script src="{% static 'js/chart.min.js' %}"></script>
+    <script src="{% static  'js/data.js' %}"></script>
+    <script src="{% static  'js/custom.js' %}"></script>
+{% endblock %}

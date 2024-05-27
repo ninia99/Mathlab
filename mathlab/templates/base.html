@@ -38,5 +38,8 @@
         {% endblock %}
         
         {% include 'partials/footer.html' %}
+        {% block scripts %}
+            <scripts src="{% static 'js/jquery-3.7.1.min.js' %}"> </scripts>
+        {% endblock %}
     </body>
 </html>
