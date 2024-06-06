@@ -1,0 +1,15 @@
+[Unit]
+Description=lifsim
+After=syslog.target
+
+[Service]
+ExecStart=/src/lifsim/deployment/uwsgi_start.sh
+RuntimeDirectory=uwsgi
+Restart=always
+KillSignal=SIGQUIT
+Type=notify
+StandardError=syslog
+NotifyAccess=all
+
+[Install]
+WantedBy=multi-user.target
