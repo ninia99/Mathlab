@@ -51,6 +51,12 @@ class ContactView(generic.TemplateView):
 class DemoView(generic.TemplateView):
     template_name = 'home/demo.html'
 
+    def get_context_data(self, **kwargs):
+        context = {
+            'hide_demo': False
+        }
+        return context
+
 
 class DownloadView(generic.TemplateView):
     template_name = 'home/download.html'
