@@ -26,7 +26,9 @@ SECRET_KEY = 'django-insecure-o&@%y1(yee0=2k3*uv1uhz$4x!!4ph1$bn1=5gh=_x6o+p3sh0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'lifsim.empi-rf.de', '195.201.114.12'
+]
 
 # Application definition
 
@@ -75,8 +77,12 @@ WSGI_APPLICATION = 'mathlab.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'lifsimdb',
+        'USER': 'lifsim',
+        'PASSWORD': 'eYmOu0I51Ms324v4',
+        'HOST': 'localhost',
+        'PORT': 5432,
     }
 }
 
