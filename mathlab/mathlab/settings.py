@@ -27,7 +27,8 @@ SECRET_KEY = 'django-insecure-o&@%y1(yee0=2k3*uv1uhz$4x!!4ph1$bn1=5gh=_x6o+p3sh0
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'lifsim.empi-rf.de', '195.201.114.12'
+    'lifsim.empi-rf.de', '195.201.114.12',
+    'localhost', '127.0.0.1'
 ]
 
 # Application definition
