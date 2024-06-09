@@ -13,4 +13,4 @@ export DJANGO_SETTINGS_MODULE=$DJANGO_SETTINGS_MODULE
 
 export  PYTHONPATH=$DJANGODIR:$PYTHONPATH
 
-exec   $ENVBIN/uwsgi --ini /src/lifsim/deployment
+exec   $ENVBIN/uwsgi --ini /src/lifsim/deployment/uwsgi/lifsim.uwsgi.ini
