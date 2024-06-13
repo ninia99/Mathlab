@@ -1,6 +1,7 @@
 from django.views import generic
 from django.db import models
 from .models import Post, Contact, Category, About, Download, Logo
+from django.core.mail import send_mail
 
 
 class AboutView(generic.TemplateView):
@@ -42,10 +43,41 @@ class ContactView(generic.TemplateView):
     template_name = "home/contact.html"
 
     def get_context_data(self, **kwargs):
-        context = {
+        return {
             'contact': Contact.objects.first()
         }
-        return context
+
+    def post(self, request, *args, **kwargs):
+        context = {}
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        phone = request.POST['phone']
+        country = request.POST['country']
+        message = request.POST['message']
+
+        if not first_name:
+            context.update({first_name: 'please fill that field'})
+        if not last_name:
+            context.update({last_name: 'please fill that field'})
+        if not email:
+            context.update({email: 'please fill that field'})
+        if not phone:
+            context.update({phone: 'please fill that field'})
+        if not country:
+            context.update({country: 'please fill that field'})
+        if not message:
+            context.update({message: 'please fill that field'})
+        if first_name and last_name and email and phone and country and message:
+            send_mail(
+                'support',
+                f'{message}',
+                'ninoshvelidze99@gmail.com',
+                recipient_list=['ninoshvelidzde99@gmail.com'],
+                fail_silently=False,
+            )
+            print(context)
+            return self.render_to_response(context=context, **kwargs)
 
 
 class DemoView(generic.TemplateView):
@@ -53,7 +85,7 @@ class DemoView(generic.TemplateView):
 
     def get_context_data(self, **kwargs):
         context = {
-            'hide_demo': False
+            'hide_demo': True
         }
         return context
 
