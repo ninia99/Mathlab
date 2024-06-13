@@ -28,6 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
 
+    'lifsim.empi-rf.de', '195.201.114.12',
     'localhost', '127.0.0.1'
 ]
 
@@ -122,6 +123,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
