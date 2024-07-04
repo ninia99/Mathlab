@@ -1,20 +1,26 @@
 {% load static %}
 
-    <footer class="py-5 bg-dark fixed-bottom">
-         <div class="col" id="footerLogo"><a class="navbar-brand" href="/"> <img src="{% static 'images/logo_UDE.png' %}" alt="LIFsim 4.0" width="200"></a></div>
-            <div class="col col-md-auto justify-content-end">
-                            <nav id="navigationFooter" class="navbar">
-                                <ul>
-                                    <li><a href="https://www.uni-due.de/de/impressum.shtml"><i class="far fa-comments"></i>Impressum</a></li>
-                                    <li><a href="https://www.uni-due.de/de/datenschutz.php"><i class="far fa-user-shield"></i>Datenschutz</a></li>
+    
 
-                                </ul>
-                            </nav>
-                            <div id="footerCopyright" class="navbar">
-                                <ul class="nav">
-                                    <li>©&nbsp;UDE</li>
-                                </ul>
-                            </div>
-                        </div>
-        
-    </footer>
+    <footer class="py-5 bg-dark fixed-bottom">
+    <div class="container d-flex flex-column align-items-center">
+        <div id="footerLogo" class="mb-3">
+            <a class="navbar-brand" href="/"> 
+                <img src="{% static 'images/logo_UDE.png' %}" alt="LIFsim 4.0" width="200">
+            </a>
+        </div>
+        <nav id="navigationFooter" class="navbar mb-3">
+            <ul class="nav">
+                <li class="nav-item"><a class="nav-link text-light" href="https://www.uni-due.de/de/impressum.shtml">Imprint</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="https://www.uni-due.de/en/privacy-policy.php">Privacy policy</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="https://www.uni-due.de/empi/rf/index_en.php">EMPI-RF</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="https://www.uni-due.de/de/datenschutz.php">Placeholder</a></li>
+            </ul>
+        </nav>
+        <div id="footerCopyright">
+            <ul class="nav">
+                <li class="nav-item text-light">© UDE</li>
+            </ul>
+        </div>
+    </div>
+</footer>

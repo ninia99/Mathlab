@@ -43,18 +43,27 @@ class ContactView(generic.TemplateView):
     template_name = "home/contact.html"
 
     def get_context_data(self, **kwargs):
-        return {
-            'contact': Contact.objects.first()
-        }
+        context = super().get_context_data(**kwargs)
+        context['context'] = Contact.objects.first()
+        return context
 
     def post(self, request, *args, **kwargs):
-        context = {}
-        first_name = request.POST['first_name']
-        last_name = request.POST['last_name']
-        email = request.POST['email']
-        phone = request.POST['phone']
-        country = request.POST['country']
-        message = request.POST['message']
+        context = self.get_context_data(**kwargs)
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')
+        country = request.POST.get('country')
+        message = request.POST.get('message')
+
+        context.update({
+            'firs_name': first_name,
+            'last_name': last_name,
+            'email': email,
+            'phone': phone,
+            'country': country,
+            'message': message
+        })
 
         if not first_name:
             context.update({first_name: 'please fill that field'})
@@ -72,7 +81,7 @@ class ContactView(generic.TemplateView):
             send_mail(
                 'support',
                 f'{message}',
-                'ninoshvelidze99@gmail.com',
+                '',
                 recipient_list=['ninoshvelidzde99@gmail.com'],
                 fail_silently=False,
             )
