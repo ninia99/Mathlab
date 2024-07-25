@@ -15,10 +15,13 @@
                     </div>
                     <div class="col-lg-8">
                         <h2>INTRODUCTION</h2>
-                        <p class="lead">{{ about.introduction|safe }}</p>
+                        {% for introduce_entry in about.introduction %}
+                        <p class="lead">{{ introduce_entry.introduction|safe }}</p>
+                            {% endfor %}
                         {% if about.pdf_title and about.pdf %}
                         <p><a href="{{ about.pdf.url }}" target="_blank"><strong>{{ about.pdf_title }} </strong></a></p>
                         {% endif %}
+                    {% endfor %}
                     </div>
                 </div>
             </div>
@@ -31,6 +34,7 @@
                     </div>
                     <div class="col-lg-8">
                         <h2>HISTORY</h2>
+                        
                         <p class="lead">{{ about.history }}</p>
                         
                     </div>
