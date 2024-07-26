@@ -35,6 +35,7 @@ class About(models.Model):
     history = models.TextField()
     pdf = models.FileField(upload_to='files/', null=True, blank=True)
     pdf_title = models.TextField(null=True, blank=True)
+    post_about = models.ForeignKey("Category", related_name="abouts", on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return 'About'
