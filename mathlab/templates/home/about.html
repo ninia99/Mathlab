@@ -1,7 +1,7 @@
  {% extends 'base.html' %}
 
 {% block content %}
-       {% for about in abouts.all %}
+       
         <section id="introduction" style="padding-top: 3rem; padding-bottom: 3rem">
             <div class="container ">
                 <div class="row justify-content-center">
@@ -15,8 +15,9 @@
                     </div>
                     <div class="col-lg-8">
                         <h2>INTRODUCTION</h2>
-                        
+                        {% for about in abouts.all %}
                         <p class="lead">{{ about.introduction|safe }}</p>
+                        {% endfor %}
                             
                         {% if about.pdf_title and about.pdf %}
                         <p><a href="{{ about.pdf.url }}" target="_blank"><strong>{{ about.pdf_title }} </strong></a></p>
@@ -72,5 +73,5 @@
                 </div>
             </div>
         </section>
-   {% endfor %}
+   
 {% endblock content %}
