@@ -9,7 +9,7 @@ class AboutView(generic.TemplateView):
 
     def get_context_data(self, **kwargs):
         context = {
-            'about': About.objects.first()
+            'abouts': About.objects.all()
         }
         return context
 
