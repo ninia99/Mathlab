@@ -1,0 +1,2 @@
+const lineChartLabels= [];
+const lineChartData= [];
