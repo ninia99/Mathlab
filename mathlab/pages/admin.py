@@ -1,7 +1,7 @@
 from django.contrib import admin
-from django_summernote.admin import SummernoteModelAdmin
+from django_summernote.admin import SummernoteModelAdmin, SummernoteInlineModelAdmin
 
-from .models import Post, Category, Contact, About, Screenshots, Download, Logo
+from .models import Post, Category, Contact, About, Screenshots, Download, Logo, Abouts
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -20,10 +20,6 @@ class ContactAdmin(admin.ModelAdmin):
     list_display = ('email',)
 
 
-class AboutAdmin(SummernoteModelAdmin):
-    summernote_fields = ['introduction']
-
-
 class ScreenshotsAdmin(admin.ModelAdmin):
     pass
 
@@ -36,10 +32,20 @@ class LogoAdmin(admin.ModelAdmin):
     pass
 
 
+class AboutsAdmin(admin.StackedInline):
+    model = Abouts
+
+
+class AboutAdmin(SummernoteModelAdmin):
+    summernote_fields = ['introduction']
+    model = About
+    inlines = [AboutsAdmin]
+
+
+admin.site.register(About, AboutAdmin)
 admin.site.register(Post, PostAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Contact, ContactAdmin)
-admin.site.register(About, AboutAdmin)
 admin.site.register(Screenshots, ScreenshotsAdmin)
 admin.site.register(Download, DownloadAdmin)
 admin.site.register(Logo, LogoAdmin)

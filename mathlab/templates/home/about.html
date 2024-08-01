@@ -1,17 +1,19 @@
  {% extends 'base.html' %}
 
 {% block content %}
-        
-        <section id="introduction" style="padding-top: 3rem; padding-bottom: 3rem">
+        {% for about in about_object.abouts.all %}
+        <section id="introduction-{{ forloop.counter0 }}" style="padding-top: 3rem; padding-bottom: 3rem">
             <div class="container ">
                 <div class="row justify-content-center">
                     <div class="col-lg-3">
+                        {% comment %}
                         <nav class="nav flex-column">
                       <a class="nav-link active" aria-current="page" href="#introduction">Introduction</a>
                       <a class="nav-link" href="#history">History</a>
                       <a class="nav-link" href="#screenshots">Screenshots</a>
                             <a class="nav-link" href="#license">license</a>
                         </nav>
+                        {% endcomment %}
                     </div>
                     <div class="col-lg-8">
                         <h2>INTRODUCTION</h2>
@@ -23,7 +25,7 @@
                 </div>
             </div>
         </section>
-        <section  id="history" style="padding-top: 3rem; padding-bottom: 3rem">
+        <section  id="history-{{ forloop.counter0 }}" style="padding-top: 3rem; padding-bottom: 3rem">
             <div class="container ">
                 <div class="row  justify-content-center">
                     <div class="col-lg-3">
@@ -37,7 +39,7 @@
                 </div>
             </div>
         </section>
-        <section  id="screenshots" style="padding-top: 3rem; padding-bottom: 3rem">
+        <section  id="screenshots-{{ forloop.counter0 }}" style="padding-top: 3rem; padding-bottom: 3rem">
             <div class="container ">
                 <div class="row  justify-content-center">
                     <div class="col-lg-3">
@@ -59,7 +61,7 @@
                 </div>
             </div>
         </section>
-         <section  id="license" style="padding-top: 3rem; padding-bottom: 15rem !important;">
+         <section  id="license-{{ forloop.counter0 }}" style="padding-top: 3rem; padding-bottom: 15rem !important;">
             <div class="container">
                 <div class="row  justify-content-center">
                     <div class="col-lg-3">
@@ -73,4 +75,5 @@
                 </div>
             </div>
         </section>
+    {% endfor %}
 {% endblock content %}
