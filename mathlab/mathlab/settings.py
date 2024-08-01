@@ -78,13 +78,12 @@ WSGI_APPLICATION = 'mathlab.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'lifsimdatabase',
+        'NAME': 'lifsimdb',
         'USER': 'lifsim',
-        'PASSWORD': '$Pkw+Ef#U++xe6Jn',
+        'PASSWORD': 'eYmOu0I51Ms324v4',
         'HOST': '0.0.0.0',
         'PORT': 5432,
     },
@@ -99,6 +98,7 @@ DATABASES = {
     #}
 
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
