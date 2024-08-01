@@ -2,6 +2,7 @@ from django.views import generic
 from django.db import models
 from .models import Post, Contact, Category, About, Download, Logo
 from django.core.mail import send_mail
+from django.http import HttpResponseRedirect
 
 
 class AboutView(generic.TemplateView):
@@ -21,7 +22,7 @@ class PostDetailView(generic.DetailView):
 
     def get_context_data(self, **kwargs):
         context = {
-            'post': Post.objects.first()
+            'post': Post.objects.all()
         }
 
         return context
