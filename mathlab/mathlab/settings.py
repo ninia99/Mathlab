@@ -89,14 +89,15 @@ DATABASES = {
         'PORT': 5432,
     },
 
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'lifsimdb',
-        'USER': 'lifsim',
-        'PASSWORD': 'eYmOu0I51Ms324v4',
-        'HOST': '0.0.0.0',
-        'PORT': 5432,
-    }
+    #'default': {
+    #    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #    'NAME': 'lifsimdb',
+    #    'USER': 'lifsim',
+    #    'PASSWORD': 'eYmOu0I51Ms324v4',
+    #    'HOST': '0.0.0.0',
+    #    'PORT': 5432,
+    #}
+
 }
 
 # Password validation
