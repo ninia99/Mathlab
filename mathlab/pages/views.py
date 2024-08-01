@@ -10,7 +10,7 @@ class AboutView(generic.TemplateView):
 
     def get_context_data(self, **kwargs):
         context = {
-            'abouts': About.objects.all()
+            'abouts': About.objects.first()
         }
         return context
 
@@ -19,13 +19,6 @@ class PostDetailView(generic.DetailView):
     template_name = 'home/post_detail.html'
     model = Post
     context_object_name = 'post'
-
-    def get_context_data(self, **kwargs):
-        context = {
-            'post': Post.objects.all()
-        }
-
-        return context
 
 
 class IndexView(generic.TemplateView):
