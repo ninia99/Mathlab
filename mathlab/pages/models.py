@@ -18,6 +18,7 @@ class Post(models.Model):
     title = models.CharField(max_length=250)
     image = models.ImageField(upload_to='about/')
     short_text = models.TextField()
+    category = models.ForeignKey("Category", related_name="posts", on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.title
@@ -34,7 +35,7 @@ class About(models.Model):
     history = models.TextField()
     pdf = models.FileField(upload_to='files/', null=True, blank=True)
     pdf_title = models.TextField(null=True, blank=True)
-    post_about = models.ForeignKey("Category", related_name="abouts", on_delete=models.CASCADE, null=True, blank=True)
+
 
     def __str__(self):
         return 'About'
@@ -109,7 +110,6 @@ class Download(models.Model):
 class Logo(models.Model):
     link = models.URLField()
     image = models.ImageField(upload_to='logo/')
-
 
     def __str__(self):
         return self.link
