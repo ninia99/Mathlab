@@ -33,7 +33,9 @@
                     </div>
                     <div class="col-lg-8">
                         <h2>HISTORY</h2>
+                        {% for about in abouts %}
                         <p class="lead">{{ about.history }}</p>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -45,7 +47,7 @@
                     </div>
                     <div class="col-lg-8">
                         <h2>SCREENSHOTS</h2>
-                       {% for screenshot in about.screenshots.all %}
+                       {% for screenshot in abouts.screenshots.all %}
                            <div class="card mb-5">
                            <h5 class="card-title">{{  screenshot.title }}</h5>
                         <img class="card-img-top" src="{{ screenshot.image.url }}" alt={{ screenshot.title }}>
@@ -67,8 +69,9 @@
                     </div>
                     <div class="col-lg-8">
                         <h2>LICENSE</h2>
+                        {% for about in abouts %}
                         <p class="lead">{{ about.license }}</p>
-                        
+                        {% endfor %}
                     </div>
                 </div>
             </div>
