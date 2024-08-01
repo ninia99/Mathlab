@@ -27,9 +27,12 @@ SECRET_KEY = 'django-insecure-o&@%y1(yee0=2k3*uv1uhz$4x!!4ph1$bn1=5gh=_x6o+p3sh0
 DEBUG = True
 
 ALLOWED_HOSTS = [
+
     'lifsim.empi-rf.de', '195.201.114.12',
     'localhost', '127.0.0.1'
 ]
+
+
 
 # Application definition
 
@@ -79,10 +82,19 @@ WSGI_APPLICATION = 'mathlab.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'lifsimdatabase',
+        'USER': 'lifsim',
+        'PASSWORD': '$Pkw+Ef#U++xe6Jn',
+        'HOST': '0.0.0.0',
+        'PORT': 5432,
+    },
+
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'lifsimdb',
         'USER': 'lifsim',
         'PASSWORD': 'eYmOu0I51Ms324v4',
-        'HOST': 'localhost',
+        'HOST': '0.0.0.0',
         'PORT': 5432,
     }
 }
@@ -132,3 +144,12 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+EMAIL_PORT = '2525'
+EMAIL_HOST_USER = '9c4023ed80008f'
+EMAIL_HOST_PASSWORD = 'b0633d701513af'
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+DEFAULT_FROM_EMAIL = 'ninoshvelidze99@gmail.com'

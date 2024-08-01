@@ -18,7 +18,7 @@ class Post(models.Model):
     title = models.CharField(max_length=250)
     image = models.ImageField(upload_to='about/')
     short_text = models.TextField()
-    category = models.ForeignKey("Category", related_name="posts", on_delete=models.CASCADE)
+    category = models.ForeignKey("Category", related_name="posts", on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.title
@@ -44,6 +44,7 @@ class Abouts(models.Model):
 
 
 class About(models.Model):
+
 
     def __str__(self):
         return 'About'

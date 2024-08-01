@@ -1,5 +1,28 @@
 {% load static %}
-<!-- Footer-->
-    <footer class="py-5 bg-dark fixed-bottom">
-            <div class="container px-4"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
-        </footer>
+
+<footer class="py-4 bg-dark fixed-bottom">
+    <div class="container px-4 d-flex flex-column align-items-center">
+        <div id="footerLogo" class="mb-3">
+            <a class="navbar-brand" href="/"> 
+                <img src="{% static 'images/white_logo_UDE.png' %}" alt="LIFsim 4.0" style="height: 75px">
+            </a>
+        </div>
+        <nav id="navigationFooter" class="navbar navbar-expand-lg navbar-dark">
+            <div class="collapse navbar-collapse" id="navbarFooterResponsive">
+                <ul class="navbar-nav ms-auto">
+               <li class="nav-item"><a class="nav-link text-light" href="https://www.uni-due.de/de/impressum.shtml">Imprint</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="https://www.uni-due.de/en/privacy-policy.php">Privacy policy</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="https://www.uni-due.de/empi/rf/index_en.php">EMPI-RF</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="https://www.uni-due.de/de/datenschutz.php">Placeholder</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div id="footerCopyright">
+            <ul class="nav">
+                <li class="nav-item text-light">© UDE</li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+
