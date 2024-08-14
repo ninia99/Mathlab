@@ -2,7 +2,7 @@
 
 {% block content %}
         {% for about in abouts %}
-        <section id="A-{{ forloop.counter0 }}" style="padding-top: 3rem; padding-bottom: 3rem">
+        <section id="A-{{ forloop.counter0 }}" style="{% if forloop.last  %} padding-top: 3rem; padding-bottom: 15rem !important; {% else %}padding-top: 3rem; padding-bottom: 3rem {% endif %}">
             <div class="container ">
                 <div class="row justify-content-center">
                     <div class="col-lg-3">
