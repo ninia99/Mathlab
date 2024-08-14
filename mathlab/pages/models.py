@@ -29,25 +29,11 @@ class Post(models.Model):
 
 
 class Abouts(models.Model):
-    about = models.ForeignKey("About", related_name="abouts", on_delete=models.CASCADE)
-    introduction = models.TextField(null=True)
-    license = models.TextField(null=True, blank=True)
-    screenshots = models.ManyToManyField('pages.Screenshots')
-    history = models.TextField(null=True)
+    text = models.TextField(null=True)
+    title = models.CharField(null=True)
 
     def __str__(self):
-        return str(self.about)
-
-    class Meta:
-        verbose_name = 'about'
-        verbose_name_plural = 'abouts'
-
-
-class About(models.Model):
-
-
-    def __str__(self):
-        return 'About'
+        return str(self.title)
 
     class Meta:
         verbose_name = 'about'

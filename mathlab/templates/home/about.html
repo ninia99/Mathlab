@@ -1,74 +1,15 @@
  {% extends 'base.html' %}
 
 {% block content %}
-        {% for about in about_object.abouts.all %}
-        <section id="introduction-{{ forloop.counter0 }}" style="padding-top: 3rem; padding-bottom: 3rem">
+        {% for about in abouts %}
+        <section id="A-{{ forloop.counter0 }}" style="padding-top: 3rem; padding-bottom: 3rem">
             <div class="container ">
                 <div class="row justify-content-center">
                     <div class="col-lg-3">
-                        {% comment %}
-                        <nav class="nav flex-column">
-                      <a class="nav-link active" aria-current="page" href="#introduction">Introduction</a>
-                      <a class="nav-link" href="#history">History</a>
-                      <a class="nav-link" href="#screenshots">Screenshots</a>
-                            <a class="nav-link" href="#license">license</a>
-                        </nav>
-                        {% endcomment %}
                     </div>
                     <div class="col-lg-8">
-                        <h2>INTRODUCTION</h2>
-                        <p class="lead">{{ about.introduction|safe }}</p>
-                        {% if about.pdf_title and about.pdf %}
-                        <p><a href="{{ about.pdf.url }}" target="_blank"><strong>{{ about.pdf_title }} </strong></a></p>
-                        {% endif %}
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section  id="history-{{ forloop.counter0 }}" style="padding-top: 3rem; padding-bottom: 3rem">
-            <div class="container ">
-                <div class="row  justify-content-center">
-                    <div class="col-lg-3">
-                    </div>
-                    <div class="col-lg-8">
-                        <h2>HISTORY</h2>
-                        <p class="lead">{{ about.history }}</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section  id="screenshots-{{ forloop.counter0 }}" style="padding-top: 3rem; padding-bottom: 3rem">
-            <div class="container ">
-                <div class="row  justify-content-center">
-                    <div class="col-lg-3">
-                    </div>
-                    <div class="col-lg-8">
-                        <h2>SCREENSHOTS</h2>
-                       {% for screenshot in about.screenshots.all %}
-                           <div class="card mb-5">
-                           <h5 class="card-title">{{  screenshot.title }}</h5>
-                        <img class="card-img-top" src="{{ screenshot.image.url }}" alt={{ screenshot.title }}>
-                               <div class="card-body">
-                            <p class="card-text">{{ screenshot.description}}</p>
-                                </div>
-                                </div>
-                        {% endfor %}
-                        
-                    </div>
-                </div>
-            </div>
-        </section>
-         <section  id="license-{{ forloop.counter0 }}" style="padding-top: 3rem; padding-bottom: 15rem !important;">
-            <div class="container">
-                <div class="row  justify-content-center">
-                    <div class="col-lg-3">
-                   
-                    </div>
-                    <div class="col-lg-8">
-                        <h2>LICENSE</h2>
-                        
-                        <p class="lead">{{ about.license }}</p>
-                        
+                        <h4>{{ about.title }}</h4>
+                        <p class="lead">{{ about.text|safe }}</p>
                     </div>
                 </div>
             </div>
