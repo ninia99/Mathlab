@@ -8,40 +8,50 @@
         
 
         <!-- Contact Form Block -->
-      <form action="{{'contact'}}" method="post">
+      <form action="{% url 'contact' %}" method="post">
           {% csrf_token %}
         <div class="col-xl-6">
+            
           <h2 class="pb-4">Leave a message</h2>
+            <h2>
+                {% for message in messages %}
+                    <strong>{{ message }}</strong>
+                {% endfor %}
+            </h2>
+            <h2>{{ form.errors }}</h2>
           <div class="row g-4">
             <div class="col-6 mb-3">
-              <label for="exampleFormControlInput1" class="form-label">First Name{{ contact.first_name }}</label>
-              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="John">
+              <label for="exampleFormControlInput1" class="form-label">First Name</label>
+              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="John" name="first_name">
+                {% if form.errors%} 
+                    
+                {% endif %}
             </div>
             <div class="col-6 mb-3">
-              <label for="exampleFormControlInput1" class="form-label">Last Name {{ contact.last_name }}</label>
-              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Doe">
+              <label for="exampleFormControlInput1" class="form-label">Last Name </label>
+              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Doe" name="last_name">
             </div>
           </div>
           <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Email {{ contact.email }}</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            <label for="exampleFormControlInput1" class="form-label">Email </label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="email">
           </div>
           <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Phone {{ contact.phone }}</label>
-            <input type="tel" class="form-control" id="exampleFormControlInput1" placeholder="+1234567890">
+            <label for="exampleFormControlInput1" class="form-label">Phone </label>
+            <input type="tel" class="form-control" id="exampleFormControlInput1" placeholder="+1234567890" name="phone">
           </div>
           <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Country {{ contact.country }}</label>
-            <select class="form-select" aria-label="Default select example">
+            <label for="exampleFormControlInput1" class="form-label">Country </label>
+            <select class="form-select" aria-label="Default select example" name="country">
               <option value="1">Deutschland</option>
               <option value="2">Georgia</option>
             </select>
           </div>
           <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Message {{ contact.message }}</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <label for="exampleFormControlTextarea1" class="form-label">Message </label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="message"></textarea>
           </div>
-          <button type="button" class="btn btn-dark">Send Message</button>
+          <button type="submit" class="btn btn-dark">Send Message</button>
         </div>
           </form>
       </div>

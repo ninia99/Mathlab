@@ -1,9 +1,11 @@
+from django.contrib import messages
+from django.urls import reverse_lazy
 from django.views import generic
 from django.db import models
 from .models import Post, Contact, Abouts, Download, Logo
 from django.core.mail import send_mail
 from django.http import HttpResponseRedirect
-
+from .forms import ContactForm
 
 class AboutView(generic.TemplateView):
     template_name = "home/about.html"
@@ -44,44 +46,23 @@ class ContactView(generic.TemplateView):
 
     def post(self, request, *args, **kwargs):
         context = self.get_context_data(**kwargs)
-        first_name = request.POST.get('first_name')
-        last_name = request.POST.get('last_name')
-        email = request.POST.get('email')
-        phone = request.POST.get('phone')
-        country = request.POST.get('country')
-        message = request.POST.get('message')
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            try:
+                send_mail(
+                    'support',
+                    form.cleaned_data['message'],
+                    from_email='ninoshvelidze99@gmail.com',
+                    recipient_list=['ninoshvelidze78@gmail.com'],
 
-        context.update({
-            'firs_name': first_name,
-            'last_name': last_name,
-            'email': email,
-            'phone': phone,
-            'country': country,
-            'message': message
-        })
+                )
+                messages.success(request, 'Thank you for your messages')
 
-        if not first_name:
-            context.update({first_name: 'please fill that field'})
-        if not last_name:
-            context.update({last_name: 'please fill that field'})
-        if not email:
-            context.update({email: 'please fill that field'})
-        if not phone:
-            context.update({phone: 'please fill that field'})
-        if not country:
-            context.update({country: 'please fill that field'})
-        if not message:
-            context.update({message: 'please fill that field'})
-        if first_name and last_name and email and phone and country and message:
-            send_mail(
-                'support',
-                f'{message}',
-                '',
-                recipient_list=['ninoshvelidzde99@gmail.com'],
-                fail_silently=False,
-            )
-            print(context)
-            return self.render_to_response(context=context, **kwargs)
+            except:
+                messages.error(request, 'somthing went wrong')
+            return HttpResponseRedirect(reverse_lazy("contact"))
+        context['form'] = form
+        return self.render_to_response(context=context, **kwargs)
 
 
 class DemoView(generic.TemplateView):
