@@ -1,18 +1,21 @@
- {% extends 'base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
-        {% for about in abouts %}
-        <section id="A-{{ forloop.counter0 }}" style="{% if forloop.last  %} padding-top: 3rem; padding-bottom: 15rem !important; {% else %}padding-top: 3rem; padding-bottom: 3rem {% endif %}">
-            <div class="container ">
-                <div class="row justify-content-center">
-                    <div class="col-lg-3">
-                    </div>
-                    <div class="col-lg-8">
-                        <h4>{{ about.title }}</h4>
-                        <p class="lead">{{ about.text|safe }}</p>
-                    </div>
+    {% for about in abouts %}
+    <details>
+        <summary>
+            <h4>{{ about.title }}</h4>
+        </summary>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <!-- Optional: Add any additional content or styling here -->
+                </div>
+                <div class="col-lg-8">
+                    <p class="lead">{{ about.text|safe }}</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </details>
     {% endfor %}
 {% endblock content %}

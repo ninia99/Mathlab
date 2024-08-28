@@ -32,8 +32,6 @@ ALLOWED_HOSTS = [
     'localhost', '127.0.0.1'
 ]
 
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -89,17 +87,16 @@ DATABASES = {
         'PORT': 5432,
     },
 
-    #'default': {
+    # 'default': {
     #    'ENGINE': 'django.db.backends.postgresql_psycopg2',
     #    'NAME': 'lifsimdb',
     #    'USER': 'lifsim',
-    #    'PASSWORD': 'eYmOu0I51Ms324v4',
+    #    'PASSWORD': '$Pkw+Ef#U++xe6Jn',
     #    'HOST': '0.0.0.0',
     #    'PORT': 5432,
-    #}
+    # }
 
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -146,7 +143,6 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
