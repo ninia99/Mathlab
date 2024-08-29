@@ -11,6 +11,7 @@
         <title>LIFSim: LIF tool for spectra simulation and fitting</title>
         {# <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}" /> #}
         <!-- Core theme CSS (includes Bootstrap)-->
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
         <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
     </head>
 
@@ -43,5 +44,26 @@
         {% block scripts %}
             <scripts src="{% static 'js/jquery-3.7.1.min.js' %}"> </scripts>
         {% endblock %}
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get all details elements on the page
+        const detailsElements = document.querySelectorAll('details');
+
+        detailsElements.forEach(function(details) {
+            const arrowIcon = details.querySelector('summary i');
+
+            // Toggle the icon's rotation on toggle
+            details.addEventListener('toggle', function() {
+                if (details.open) {
+                    arrowIcon.style.transform = 'rotate(90deg)';
+                } else {
+                    arrowIcon.style.transform = 'rotate(0deg)';
+                }
+            });
+        });
+    });
+</script>
+
     </body>
 </html>

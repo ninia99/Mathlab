@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
-
 {% block content %}
     {% for about in abouts %}
     <details>
-        <summary>
-            <h4 class="text-center mb-0">{{ about.title }}</h4>
+        <summary style="text-align: center; display: flex; align-items: center; justify-content: center;">
+            <!-- Arrow icon -->
+            <span style="margin-right: 10px; display: inline-block;">&#9654;</span> <!-- Right-pointing arrow -->
+            <!-- Title -->
+            <span style="display: inline-block; vertical-align: middle; font-size:30px "  >{{ about.title }}</span>
         </summary>
         <div class="container">
             <div class="row justify-content-center">
