@@ -7,6 +7,7 @@ from django.core.mail import send_mail
 from django.http import HttpResponseRedirect
 from .forms import ContactForm
 
+
 class AboutView(generic.TemplateView):
     template_name = "home/about.html"
 

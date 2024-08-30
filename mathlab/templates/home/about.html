@@ -2,22 +2,28 @@
 {% block content %}
     {% for about in abouts %}
     <details>
-        <summary style="text-align: center; display: flex; align-items: center; justify-content: center;">
+        <summary style="display: flex; align-items: center; justify-content: center;">
             <!-- Arrow icon -->
-            <span style="margin-right: 10px; display: inline-block;">&#9654;</span> <!-- Right-pointing arrow -->
+            <span style="margin-right: 10px; color: blue;">&#9654;</span>
             <!-- Title -->
-            <span style="display: inline-block; vertical-align: middle; font-size:30px "  >{{ about.title }}</span>
+            <a href="#" style="display: inline-block; vertical-align: middle; font-size: 32px; font-weight: bold; text-decoration: none; color: black;"
+               onmouseover="this.style.color='rgb(229, 101, 78)'; this.style.textDecoration='underline';"
+               onmouseout="this.style.color='black'; this.style.textDecoration='none';">
+                {{ about.title }}
+            </a>
         </summary>
         <div class="container">
+              
             <div class="row justify-content-center">
+                
                 <div class="col-lg-8">
-                    <!-- Optional: Add any additional content or styling here -->
-                </div>
-                <div class="col-lg-8">
+                    
                     <p class="lead">{{ about.text|safe }}</p>
                 </div>
+                    
             </div>
         </div>
+        
     </details>
     {% endfor %}
 {% endblock content %}
