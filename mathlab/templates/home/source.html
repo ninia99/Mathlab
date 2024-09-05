@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+    <style>
+        details[open] summary .arrow {
+            transform: rotate(90deg); /* Rotate the arrow when details are open */
+            transition: transform 0.3s ease; /* Smooth transition */
+            color: #0a53be;
+        }
+
+        summary .arrow {
+            transition: transform 0.3s ease; /* Smooth transition for the arrow */
+            color: #0a53be;
+        }
+
+        /* Add space between the header and the title */
+        .title-container {
+            margin-top: 55px; /* Adjust the space between the header and the title */
+        }
+
+        summary {
+            margin: 0;
+            padding: 0;
+        }
+
+        details {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
+    <!-- Add space above the first title by using a wrapper div -->
+    <div class="title-container">
+        {% for source in source_object %}
+        <details>
+            <summary style="display: flex; align-items: center; justify-content: center;">
+                <!-- Arrow icon with a class for easy targeting -->
+                <span class="arrow" style="margin-right: 20px; color: blue;">&#129094;</span>
+                <!-- Title -->
+                <a href="#" style="display: inline-block; vertical-align: middle; font-size: 32px; font-weight: bold; text-decoration: none; color: #003b7a;"
+                   onmouseover="this.style.color='rgb(229, 101, 78)'; this.style.textDecoration='underline';"
+                   onmouseout="this.style.color='#003b7a'; this.style.textDecoration='none';">
+                    {{ source.title }}
+                </a>
+            </summary>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <p class="lead">{{ source.text|safe }}</p>
+                    </div>
+                </div>
+            </div>
+        </details>
+        {% endfor %}
+    </div>
+{% endblock content %}
