@@ -1,23 +1,22 @@
 {% load static %}
+
 <footer class="py-4 bg-black fixed-bottom">
     <div class="container px-2 d-flex flex-column align-items-center">
         <div class="d-flex justify-content-between align-items-center w-100">
-            <div id="footerLogo">
-                <a href="https://www.uni-due.de/en/index.php" class="containsimage">
-                    <img src="{% static 'images/white_logo_UDE.png' %}" alt="LIFsim 4.0" style="height: 75px">
+            <div id="footerLogo" class="d-flex align-items-center">
+                <a href="https://www.uni-due.de/en/index.php" class="containsimage d-flex">
+                    <img src="{% static 'images/white_logo_UDE.png' %}" alt="LIFsim 4.0" style="height: 75px; margin-right: 15px;">
+                    <img src="{% static 'images/EMPI_Logo_reactive-fluids_Color_White.png' %}" alt="empi" style="height: 55px; margin-left: 15px;">
                 </a>
             </div>
-            <div id="footerCopyright" class="text-light">
-                <ul class="d-flex list-unstyled mb-0">
-                    © UDE
-                </ul>
-            </div>
+           
             <nav id="navigationFooter" class="navbar">
                 <ul class="d-flex list-unstyled mb-0">
-                    <li class="nav-item me-3">
+                    <li class="nav-item me-3 d-flex flex-column align-items-start">
                         <a class="nav-link text-light" href="https://www.uni-due.de/de/impressum.shtml">
                             <i class="fa-regular fa-comments"></i> Imprint
                         </a>
+                        <span class="text-light">© UDE</span>
                     </li>
                     <li class="nav-item me-3">
                         <a class="nav-link text-light" href="https://www.uni-due.de/en/privacy-policy.php">
