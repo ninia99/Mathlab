@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.urls import reverse_lazy
 from django.views import generic
 from django.db import models
-from .models import Post, Contact, Abouts, Download, Logo
+from .models import Post, Contact, Abouts, Download, Logo, Source
 from django.core.mail import send_mail
 from django.http import HttpResponseRedirect
 from .forms import ContactForm
@@ -84,4 +84,14 @@ class DownloadView(generic.TemplateView):
             'download': Download.objects.first()
         }
 
+        return context
+
+
+class SourceView(generic.TemplateView):
+    template_name = 'home/source.html'
+
+    def get_context_data(self, **kwargs):
+        context = {
+            'source_object': Source.objects.all()
+        }
         return context

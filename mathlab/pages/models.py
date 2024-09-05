@@ -112,3 +112,15 @@ class Logo(models.Model):
     class Meta:
         verbose_name = 'logo'
         verbose_name_plural = 'logos'
+
+
+class Source(models.Model):
+    text = models.TextField(null=True)
+    title = models.CharField(null=True)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'source'
+        verbose_name_plural = 'sources'

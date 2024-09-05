@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin, SummernoteInlineModelAdmin
 
-from .models import Post, Category, Contact, Screenshots, Download, Logo, Abouts
+from .models import Post, Category, Contact, Screenshots, Download, Logo, Abouts, Source
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -36,6 +36,10 @@ class AboutsAdmin(SummernoteModelAdmin):
     model = Abouts
 
 
+class SourceAdmin(SummernoteModelAdmin):
+    model = Source
+
+
 admin.site.register(Abouts, AboutsAdmin)
 admin.site.register(Post, PostAdmin)
 admin.site.register(Category, CategoryAdmin)
@@ -43,3 +47,4 @@ admin.site.register(Contact, ContactAdmin)
 admin.site.register(Screenshots, ScreenshotsAdmin)
 admin.site.register(Download, DownloadAdmin)
 admin.site.register(Logo, LogoAdmin)
+admin.site.register(Source, SourceAdmin)
