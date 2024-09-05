@@ -1,47 +1,46 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <section style="padding-bottom: 0; padding-top: 2rem">
-    <div class="container">
-       
-        <div class="row">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-2" style="padding-bottom: 22px">
-                <span class="fs-6" style="padding-bottom: 2px"> <strong>LIFSim4.0 is a project of</strong></span>
+    <section style="padding-bottom: 0; padding-top: 2rem;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-2" style="padding-bottom: 22px">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2"></div>
+                {% if logo %}
+                {% for logo in logos %}
+                <div class="col-lg-2">
+                    <a href="{{ logo.link }}" target="_blank">
+                        <img src="{{ logo.image.url }}" alt="logo" width="200">
+                    </a>
+                </div>
+                {% endfor %}
+                {% endif %}
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-2"></div>
-           {% if logo %}
-            {% for logo in logos %}
-            <div class="col-lg-2">
-                
-                <a href="{{ logo.link }}" target="_blank">
-                    <img src="{{ logo.image.url }}" alt="logo" width="200"> </a>
-            </div>
-                {% endfor %}
-           {% endif %}
-        </div>
-    
-    </div>
     </section>
-    <section>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8 ">
-                {% for post in posts %}
-        <div class="card mb-5">
-    <img class="card-img-top" src="{{ post.image.url }}" alt={{ post.title }}>
-    <div class="card-body">
-      <h5 class="card-title"><a href="{% url 'detail' post.pk %}">{{ post.title }}</a></h5>
-      <p class="card-text">{{ post.short_text }}</p>
-        </div>
-        </div>
-                {% endfor %}
-        </div>
-        </div>
-        </div>
-    </section>
-    
 
+    <!-- Adjusted section with spacing control -->
+    <section style="padding-top: 3rem;"> <!-- Increase this value to add more space -->
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    {% for post in posts %}
+                    <div class="card mb-5">
+                        <img class="card-img-top" src="{{ post.image.url }}" alt="{{ post.title }}">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="{% url 'detail' post.pk %}">{{ post.title }}</a>
+                            </h5>
+                            <p class="card-text">{{ post.short_text }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock content %}
