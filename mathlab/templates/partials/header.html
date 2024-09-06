@@ -1,7 +1,7 @@
 {% load static %}
 
 <!-- Header-->
-        <header class="text-white" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{% static 'images/background.png' %}')">
+        <header class="text-white" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{{ site_settings.image }}')">
             <div class="container px-2 text-center">
                 <h1 class="fw-bolder">{{ site_settings }}</h1>
                 <p class="lead"> {{ site_settings.sub_title }}</p>
