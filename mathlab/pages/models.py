@@ -128,6 +128,7 @@ class Source(models.Model):
 
 class SiteSettings(models.Model):
     title = models.CharField(max_length=300, default="default title")
+    sub_title = models.CharField(max_length=300, default="sub_title")
 
     def __str__(self):
         return self.title
