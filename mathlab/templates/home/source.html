@@ -36,12 +36,8 @@
         }
 
         .content {
-            max-height: 0;
-            padding: 0 18px;
-            overflow: hidden;
-            background-color: #f1f1f1;
-            margin-top: 5px;
-            transition: max-height 0.5s ease, padding 0.5s ease;
+            width: 45%; /* Match the button width */
+            margin: 0 auto; /* Center the content horizontally */
         }
 
         .collapsible.active + .content {
@@ -58,7 +54,11 @@
 
         /* Title container styling */
         .title-container {
-            margin-top: 55px;
+              margin-top: 55px;
+              width: 100%; /* Ensure container spans full width */
+              display: flex;
+              flex-direction: column;
+              align-items: center; /* Center all children */
         }
     </style>
 
@@ -70,9 +70,9 @@
         </button>
         <div class="content">
             <div class="container">
-                <div class="row justify-content-evenly">
-                    <div class="col-lg-8">
-                        <p class="justify-content-evenly">{{ source.text|safe }}</p>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p>{{ source.text|safe }}</p>
                     </div>
                 </div>
             </div>
