@@ -124,3 +124,14 @@ class Source(models.Model):
     class Meta:
         verbose_name = 'source'
         verbose_name_plural = 'sources'
+
+
+class SiteSettings(models.Model):
+    title = models.CharField(max_length=300, default="default title")
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'title'
+        verbose_name_plural = 'titles'

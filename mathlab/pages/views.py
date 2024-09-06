@@ -95,3 +95,4 @@ class SourceView(generic.TemplateView):
             'source_object': Source.objects.all()
         }
         return context
+
