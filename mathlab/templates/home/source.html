@@ -1,4 +1,3 @@
-
 {% extends 'base.html' %}
 {% block content %}
     <style>
@@ -8,7 +7,7 @@
             color: white;
             cursor: pointer;
             padding: 10px 40px; /* Adjust padding for arrow space */
-            width: 45%; /* Set width to 40% of parent container */
+            width: 45%; /* Set width to 45% of parent container */
             border: none;
             text-align: center; /* Center text inside the button */
             outline: none;
@@ -19,6 +18,7 @@
             justify-content: center; /* Center the title text */
             position: relative; /* Required for positioning the arrow */
             margin: 0 auto; /* Center the button horizontally */
+            box-sizing: border-box; /* Include padding in width */
         }
 
         .collapsible::before {
@@ -36,6 +36,13 @@
         }
 
         .content {
+            max-height: 0;
+            padding: 0 10px; /* Adjust padding for consistency */
+            overflow: hidden;
+            background-color: #f1f1f1;
+            margin-top: 5px;
+            transition: max-height 0.5s ease, padding 0.5s ease;
+            box-sizing: border-box; /* Include padding in height */
             width: 45%; /* Match the button width */
             margin: 0 auto; /* Center the content horizontally */
         }
@@ -54,16 +61,16 @@
 
         /* Title container styling */
         .title-container {
-              margin-top: 55px;
-              width: 100%; /* Ensure container spans full width */
-              display: flex;
-              flex-direction: column;
-              align-items: center; /* Center all children */
+            margin-top: 55px;
+            width: 100%; /* Ensure container spans full width */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center all children */
         }
     </style>
 
     <div class="title-container">
-        {% for source in source_object %}
+        {% for source  in source_object %}
         <button class="collapsible">
             <!-- Centered Title with bold font and hover effect -->
             <span>{{ source.title }}</span>
@@ -71,8 +78,8 @@
         <div class="content">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-12">
-                        <p>{{ source.text|safe }}</p>
+                    <div class="col-lg-12"> <!-- Use full width to match button -->
+                        <p>{{ source.text|safe }}</p> <!-- Removed class for proper alignment -->
                     </div>
                 </div>
             </div>
@@ -105,66 +112,4 @@
             });
         }
     </script>
-    
 {% endblock content %}
-
-
-
-{% comment %}
-{% extends 'base.html' %}
-{% block content %}
-    <style>
-        details[open] summary .arrow {
-            transform: rotate(90deg); /* Rotate the arrow when details are open */
-            transition: transform 0.3s ease; /* Smooth transition */
-            color: #0a53be;
-        }
-
-        summary .arrow {
-            transition: transform 0.3s ease; /* Smooth transition for the arrow */
-            color: #0a53be;
-        }
-
-        /* Add space between the header and the title */
-        .title-container {
-            margin-top: 55px; /* Adjust the space between the header and the title */
-        }
-
-        summary {
-            margin: 0;
-            padding: 0;
-        }
-
-        details {
-            margin: 0;
-            padding: 0;
-        }
-    </style>
-
-    <!-- Add space above the first title by using a wrapper div -->
-    <div class="title-container">
-        {% for source in source_object %}
-        <details>
-            <summary style="display: flex; align-items: center; justify-content: center;">
-                <!-- Arrow icon with a class for easy targeting -->
-                <span class="arrow" style="margin-right: 20px; color: blue;">&#129094;</span>
-                <!-- Title -->
-                <a href="#" style="display: inline-block; vertical-align: middle; font-size: 32px; font-weight: bold; text-decoration: none; color: #003b7a;"
-                   onmouseover="this.style.color='rgb(229, 101, 78)'; this.style.textDecoration='underline';"
-                   onmouseout="this.style.color='#003b7a'; this.style.textDecoration='none';">
-                    {{ source.title }}
-                </a>
-            </summary>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <p class="lead">{{ source.text|safe }}</p>
-                    </div>
-                </div>
-            </div>
-        </details>
-        {% endfor %}
-    </div>
-{% endblock content %}
-
-{% endcomment %}
