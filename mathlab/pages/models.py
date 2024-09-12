@@ -129,8 +129,8 @@ class Source(models.Model):
 class SiteSettings(models.Model):
     title = models.CharField(max_length=300, default="default title")
     sub_title = models.CharField(max_length=300, default="sub_title")
-    image = models.ImageField(upload_to='static/images', blank=True, null=True)
-    logo = models.ImageField(upload_to='static/images', blank=True, null=True)
+    image = models.ImageField(null=True)
+    logo = models.ImageField(null=True)
 
     def __str__(self):
         return self.title
