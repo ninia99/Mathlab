@@ -31,6 +31,7 @@ class Post(models.Model):
 class Abouts(models.Model):
     text = models.TextField(null=True)
     title = models.CharField(null=True)
+    position = models.IntegerField(default=0, null=True)
 
 
     def __str__(self):
@@ -118,6 +119,7 @@ class Logo(models.Model):
 class Source(models.Model):
     text = models.TextField(null=True)
     title = models.CharField(null=True)
+    position = models.IntegerField(default=0, null=True)
 
     def __str__(self):
         return self.title

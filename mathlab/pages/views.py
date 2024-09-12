@@ -14,7 +14,7 @@ class AboutView(generic.TemplateView):
     def get_context_data(self, **kwargs):
         context = {
 
-            'abouts': Abouts.objects.all()
+            'abouts': Abouts.objects.order_by('position')
         }
         return context
 
@@ -92,7 +92,7 @@ class SourceView(generic.TemplateView):
 
     def get_context_data(self, **kwargs):
         context = {
-            'source_object': Source.objects.all()
+            'source_object': Source.objects.order_by('position')
         }
         return context
 
