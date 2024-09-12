@@ -17,7 +17,7 @@
             align-items: center;
             justify-content: center; /* Center the title text */
             position: relative; /* Required for positioning the arrow */
-            margin: 0 auto; /* Center the button horizontally */
+            margin: 10px auto; /* Center the button horizontally */
             box-sizing: border-box; /* Include padding in width */
         }
 
@@ -86,9 +86,9 @@
         </div>
         {% endfor %}
     </div>
-
     <script>
-        var coll = document.getElementsByClassName("collapsible");
+    
+         var coll = document.getElementsByClassName("collapsible");
         for (var i = 0; i < coll.length; i++) {
             coll[i].addEventListener("click", function() {
                 var content = this.nextElementSibling;
@@ -105,9 +105,11 @@
                 // Toggle the clicked collapsible
                 this.classList.toggle("active");
                 if (this.classList.contains("active")) {
-                    content.style.maxHeight = content.scrollHeight + "px";
+                    content.style.maxHeight = 'none';  // Remove max height restriction
+                    content.style.paddingBottom = "150px"; // Add space at the bottom after click
                 } else {
                     content.style.maxHeight = null;
+                    content.style.paddingBottom = "0"; // Reset bottom padding when collapsed
                 }
             });
         }
