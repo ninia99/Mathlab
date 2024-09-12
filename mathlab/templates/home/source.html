@@ -27,12 +27,12 @@
             color: white;
             position: absolute; /* Position arrow absolutely */
             left: 10px; /* Space from the left edge */
-            transition: transform 0.3s ease; /* Smooth transition for arrow rotation */
+            transition: transform 0.5s ease; /* Smooth transition for arrow rotation */
         }
 
         .collapsible.active::before {
             content: '\25B2';
-            transform: rotate(180deg); /* Rotate arrow when active */
+            transform: rotate(0deg); /* Rotate arrow when active */
         }
 
         .content {
@@ -87,7 +87,7 @@
         {% endfor %}
     </div>
     <script>
-    
+
          var coll = document.getElementsByClassName("collapsible");
         for (var i = 0; i < coll.length; i++) {
             coll[i].addEventListener("click", function() {
@@ -106,7 +106,7 @@
                 this.classList.toggle("active");
                 if (this.classList.contains("active")) {
                     content.style.maxHeight = 'none';  // Remove max height restriction
-                    content.style.paddingBottom = "150px"; // Add space at the bottom after click
+                    content.style.paddingBottom = "100px"; // Add space at the bottom after click
                 } else {
                     content.style.maxHeight = null;
                     content.style.paddingBottom = "0"; // Reset bottom padding when collapsed

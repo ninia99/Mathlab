@@ -32,6 +32,7 @@ class Abouts(models.Model):
     text = models.TextField(null=True)
     title = models.CharField(null=True)
 
+
     def __str__(self):
         return str(self.title)
 
