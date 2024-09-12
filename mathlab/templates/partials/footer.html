@@ -1,47 +1,9 @@
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Footer Example</title>
-    <style>
-        /* Basic page styling */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        /* Footer styling */
-        footer {
-            display: none; /* Hide the footer initially */
-            background-color: black;
-            color: white;
-            padding: 20px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-
-        /* Example content height to enable scrolling */
-        .content {
-            height: 1500px;
-            padding: 20px;
-            background-color: #f4f4f4;
-        }
-
-        /* Optional: Add some padding for your main content */
-        .main {
-            padding-bottom: 100px;
-        }
-    </style>
-</head>
-<body>
-
-
-<footer class="py-4 bg-black fixed-bottom">
+<div id="content-wrap">
+    
+   </div>
+<footer  id="footer" class="py-4 bg-black">
     <div class="container px-2 d-flex flex-column align-items-center">
         <div class="d-flex justify-content-between align-items-center w-100">
             <div id="footerLogo" class="d-flex align-items-center">
@@ -81,22 +43,7 @@
         </div>
     </div>
 </footer>
-
 <script>
-    // Function to check if the user has scrolled near the bottom
-    window.onscroll = function() {
-        const footer = document.querySelector('footer');
-        const scrollPosition = window.scrollY + window.innerHeight;
-        const pageHeight = document.documentElement.scrollHeight;
 
-        // If user is near the bottom (within 100px), show the footer
-        if (pageHeight - scrollPosition < 100) {
-            footer.style.display = "block";
-        } else {
-            footer.style.display = "none";
-        }
-    };
-</script>
-
-</body>
-</html>
+         
+    </script>

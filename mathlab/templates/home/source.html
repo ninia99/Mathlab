@@ -1,73 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-    <style>
-        /* Styling for collapsible button */
-        .collapsible {
-            background-color: #003b7a;
-            color: white;
-            cursor: pointer;
-            padding: 10px 40px; /* Adjust padding for arrow space */
-            width: 45%; /* Set width to 45% of parent container */
-            border: none;
-            text-align: center; /* Center text inside the button */
-            outline: none;
-            font-size: 24px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center; /* Center the title text */
-            position: relative; /* Required for positioning the arrow */
-            margin: 10px auto; /* Center the button horizontally */
-            box-sizing: border-box; /* Include padding in width */
-        }
-
-        .collapsible::before {
-            content: '\25BC';
-            font-size: 24px; /* Increase arrow size */
-            color: white;
-            position: absolute; /* Position arrow absolutely */
-            left: 10px; /* Space from the left edge */
-            transition: transform 0.5s ease; /* Smooth transition for arrow rotation */
-        }
-
-        .collapsible.active::before {
-            content: '\25B2';
-            transform: rotate(0deg); /* Rotate arrow when active */
-        }
-
-        .content {
-            max-height: 0;
-            padding: 0 10px; /* Adjust padding for consistency */
-            overflow: hidden;
-            background-color: #f1f1f1;
-            margin-top: 5px;
-            transition: max-height 0.5s ease, padding 0.5s ease;
-            box-sizing: border-box; /* Include padding in height */
-            width: 45%; /* Match the button width */
-            margin: 0 auto; /* Center the content horizontally */
-        }
-
-        .collapsible.active + .content {
-            padding-top: 10px;
-            padding-bottom: 10px;
-        }
-
-        .content img {
-            max-width: 100%;
-            height: auto; /* Ensures the entire image is displayed */
-            display: block; /* Prevents inline spacing issues */
-            margin: 10px auto; /* Centers the image horizontally */
-        }
-
-        /* Title container styling */
-        .title-container {
-            margin-top: 55px;
-            width: 100%; /* Ensure container spans full width */
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* Center all children */
-        }
-    </style>
+    
 
     <div class="title-container">
         {% for source  in source_object %}
@@ -75,7 +8,7 @@
             <!-- Centered Title with bold font and hover effect -->
             <span>{{ source.title }}</span>
         </button>
-        <div class="content">
+        <div class="collapsible-content">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12"> <!-- Use full width to match button -->
@@ -86,32 +19,5 @@
         </div>
         {% endfor %}
     </div>
-    <script>
-
-         var coll = document.getElementsByClassName("collapsible");
-        for (var i = 0; i < coll.length; i++) {
-            coll[i].addEventListener("click", function() {
-                var content = this.nextElementSibling;
-                var activeCollapsibles = document.querySelectorAll(".collapsible.active");
-
-                // Close all other collapsibles
-                activeCollapsibles.forEach(function(collapsible) {
-                    if (collapsible !== this) {
-                        collapsible.classList.remove("active");
-                        collapsible.nextElementSibling.style.maxHeight = null;
-                    }
-                }, this);
-
-                // Toggle the clicked collapsible
-                this.classList.toggle("active");
-                if (this.classList.contains("active")) {
-                    content.style.maxHeight = 'none';  // Remove max height restriction
-                    content.style.paddingBottom = "100px"; // Add space at the bottom after click
-                } else {
-                    content.style.maxHeight = null;
-                    content.style.paddingBottom = "0"; // Reset bottom padding when collapsed
-                }
-            });
-        }
-    </script>
+    
 {% endblock content %}

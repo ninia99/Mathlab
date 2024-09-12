@@ -1,34 +1,148 @@
 {% load static %}
 <!DOCTYPE html>
-
 <html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>LIFSim: LIF tool for spectra simulation and fitting</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}" />
+    <!-- Core theme CSS (includes Bootstrap) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
+    <style>
+        #page-container{
+            position: relative;
+            min-height: 100vh;
+        }
+        #content-wrap {
+            padding-bottom: 160px;    /* Footer height */
+        }
 
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>LIFSim: LIF tool for spectra simulation and fitting</title>
-        {# <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}" /> #}
-        <!-- Core theme CSS (includes Bootstrap)-->
-         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-        <!-- Add this in the <head> section of your base.html -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        #footer {
+            background-color: black;
+            color: white;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 30px 0px;
+        }
 
-        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
-    </head>
+    </style>
+    
+    <style>
+        /* Styling for collapsible button */
+        .collapsible {
+            background-color: #003b7a;
+            color: white;
+            cursor: pointer;
+            padding: 10px 40px; /* Adjust padding for arrow space */
+            width: 45%; /* Set width to 45% of parent container */
+            border: none;
+            text-align: center; /* Center text inside the button */
+            outline: none;
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Center the title text */
+            position: relative; /* Required for positioning the arrow */
+            margin: 10px auto; /* Center the button horizontally */
+            box-sizing: border-box; /* Include padding in width */
+        }
 
-    <body id="page-top">
-        <!-- Navigation-->
+        .collapsible::before {
+            content: '\25BC';
+            font-size: 24px; /* Increase arrow size */
+            color: white;
+            position: absolute; /* Position arrow absolutely */
+            left: 10px; /* Space from the left edge */
+            transition: transform 0.5s ease; /* Smooth transition for arrow rotation */
+        }
+
+        .collapsible.active::before {
+            content: '\25B2';
+            transform: rotate(0deg); /* Rotate arrow when active */
+        }
+
+        .collapsible-content {
+            max-height: 0;
+            padding: 0 10px; /* Adjust padding for consistency */
+            overflow: hidden;
+            background-color: #f1f1f1;
+            transition: max-height 0.5s ease, padding 0.5s ease;
+            box-sizing: border-box; /* Include padding in height */
+            width: 45%; /* Match the button width */
+            margin: 0 0 10px 0; /* Center the content horizontally */
+        }
+
+        .collapsible.active + .collapsible-content {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .collapsible-content img {
+            max-width: 100%;
+            height: auto; /* Ensures the entire image is displayed */
+            display: block; /* Prevents inline spacing issues */
+            margin: 10px auto; /* Centers the image horizontally */
+        }
+
+        /* Title container styling */
+        .title-container {
+            margin-top: 55px;
+            width: 100%; /* Ensure container spans full width */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center all children */
+        }
+    </style>
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+   <script>
+       $( document ).ready(function(){
+    var coll = document.getElementsByClassName("collapsible");
+        for (var i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                var content = this.nextElementSibling;
+                var activeCollapsibles = document.querySelectorAll(".collapsible.active");
+
+                // Close all other collapsibles
+                activeCollapsibles.forEach(function(collapsible) {
+                    if (collapsible !== this) {
+                       // collapsible.classList.remove("active");
+                        //collapsible.nextElementSibling.style.maxHeight = null;
+                    }
+                }, this);
+
+                // Toggle the clicked collapsible
+                this.classList.toggle("active");
+                if (this.classList.contains("active")) {
+                    content.style.maxHeight = 'none';  // Remove max height restriction
+                    content.style.paddingBottom = "100px"; // Add space at the bottom after click
+                } else {
+                    content.style.maxHeight = null;
+                    content.style.paddingBottom = "0"; // Reset bottom padding when collapsed
+                }
+            });
+        }
+    
+})
+   </script>
+  
+</head>
+<body id="page-top">
+    <div class="wrapper" id="page-container">
+        <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar bg-white fixed-top" id="mainNav">
             <div class="container px-4">
-                <a class="navbar-brand" href="/"> <img src="{{ site_settings.logo.url }}" alt="LIFsim 4.0" style="height: 75px"></a>
+                <a class="navbar-brand" href="/"><img src="{{ site_settings.logo.url }}" alt="LIFsim 4.0" style="height: 75px"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'about'  %}">About</a></li>
-                        {% if hide_demo  %}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
+                        {% if hide_demo %}
                         <li class="nav-item"><a class="nav-link" href="{% url 'demo' %}">Demo</a></li>
                         {% endif %}
                         {% if hide_download %}
@@ -40,36 +154,16 @@
                 </div>
             </div>
         </nav>
-        {% include  'partials/header.html' %}
-        
-        {% block content %}
-            
-        {% endblock %}
-        
+
+        {% include 'partials/header.html' %}
+
+        <main class="content">
+            {% block content %}
+            <!-- Main content will be injected here -->
+            {% endblock %}
+        </main>
+
         {% include 'partials/footer.html' %}
-        {% block scripts %}
-            <scripts src="{% static 'js/jquery-3.7.1.min.js' %}"> </scripts>
-        {% endblock %}
-    
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Get all details elements on the page
-        const detailsElements = document.querySelectorAll('details');
-
-        detailsElements.forEach(function(details) {
-            const arrowIcon = details.querySelector('summary i');
-
-            // Toggle the icon's rotation on toggle
-            details.addEventListener('toggle', function() {
-                if (details.open) {
-                    arrowIcon.style.transform = 'rotate(90deg)';
-                } else {
-                    arrowIcon.style.transform = 'rotate(0deg)';
-                }
-            });
-        });
-    });
-</script>
-
-    </body>
+    </div>
+</body>
 </html>
