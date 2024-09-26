@@ -1,3 +1,2 @@
-# About 
-This is a web application for project of LIFSim4.0
+# This is a web application for project of LIFSim4.0
 		
