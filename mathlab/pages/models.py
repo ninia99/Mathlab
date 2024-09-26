@@ -92,16 +92,17 @@ class Demo(models.Model):
         verbose_name = 'demo'
         verbose_name_plural = 'demos'
 
+# This model is download page, it is now hidden, but for future I'll leave.
 
-class Download(models.Model):
-    link = models.TextField()
+# class Download(models.Model):
+#     link = models.TextField()
 
-    def __str__(self):
-        return self.link
+#     def __str__(self):
+#         return self.link
 
-    class Meta:
-        verbose_name = 'link'
-        verbose_name_plural = 'links'
+#     class Meta:
+#         verbose_name = 'link'
+#         verbose_name_plural = 'links'
 
 
 class Logo(models.Model):

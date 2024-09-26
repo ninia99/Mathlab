@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.urls import reverse_lazy
 from django.views import generic
 from django.db import models
-from .models import Post, Contact, Abouts, Download, Logo, Source
+from .models import Post, Contact, Abouts, Logo, Source
 from django.core.mail import send_mail
 from django.http import HttpResponseRedirect
 from .forms import ContactForm
