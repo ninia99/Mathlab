@@ -1,6 +1,3 @@
 # About 
-Mathlab Web Software - NanoEnergieTechnikZentrum
+This is a web application for project of LIFSim4.0
 		
-# Prerequisites  
-- Python >= 3.11.x
-- Django >= 4.2.x
