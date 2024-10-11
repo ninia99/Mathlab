@@ -593,6 +593,7 @@ progress {
   font-size: 0.875em;
   color: #6c757d;
 }
+
 .blockquote-footer::before {
   content: "— ";
 }
@@ -10837,3 +10838,4 @@ section {
   padding-top: 9rem;
   padding-bottom: 9rem;
 }
+
