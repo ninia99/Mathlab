@@ -107,7 +107,7 @@ class Demo(models.Model):
 
 class Logo(models.Model):
     link = models.URLField()
-    image = models.ImageField(upload_to='logo/')
+    image = models.ImageField(upload_to='logo/',null=True, blank=True)
 
     def __str__(self):
         return self.link
