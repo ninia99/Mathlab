@@ -30,7 +30,7 @@ class IndexView(generic.TemplateView):
 
     def get_context_data(self, **kwargs):
         context = {
-            'posts': Post.objects.all(),
+            'posts': Post.objects.all().order_by('position'),
             'logos': Logo.objects.all(),
 
         }
