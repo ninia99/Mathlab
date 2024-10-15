@@ -19,6 +19,7 @@ class Post(models.Model):
     image = models.ImageField(upload_to='about/')
     short_text = models.TextField()
     category = models.ForeignKey("Category", related_name="posts", on_delete=models.CASCADE, null=True)
+    position = models.IntegerField(default=0, null=True)
 
     def __str__(self):
         return self.title
@@ -107,7 +108,7 @@ class Demo(models.Model):
 
 class Logo(models.Model):
     link = models.URLField()
-    image = models.ImageField(upload_to='logo/',null=True, blank=True)
+    image = models.ImageField(upload_to='logo/', null=True, blank=True)
 
     def __str__(self):
         return self.link
