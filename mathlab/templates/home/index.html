@@ -10,32 +10,23 @@
             </div>
             <div class="row">
                 <div class="col-lg-2"></div>
-                {% if logo %}
-                {% for logo in logos %}
-                <div class="col-lg-2">
-                    <a href="{{ logo.link }}" target="_blank">
-                        <img src="{{ logo.image.url }}" alt="logo" width="200">
-                    </a>
-                </div>
-                {% endfor %}
-                {% endif %}
             </div>
         </div>
     </section>
 
-    <!-- Adjusted section with spacing control -->
-    <section style="padding-top: 0rem;"> <!-- Increase this value to add more space -->
+    <!-- Adjusted section with improved spacing and layout -->
+    <section style="padding-top: 1rem; padding-bottom: 3rem;"> <!-- Increased top padding -->
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-9">
                     {% for post in posts %}
-                    <div class="card mb-5">
-                        <img class="card-img-top" src="{{ post.image.url }}" alt="{{ post.title }}">
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                <a href="{% url 'detail' post.pk %}">{{ post.title }}</a>
+                    <div class="card mb-5 shadow-sm" style="border-radius: 12px; overflow: hidden;">
+                        <!-- Optional image or media placeholder -->
+                        <div class="card-body" style="background-color: #f8f9fa; padding: 30px;">
+                            <h5 class="card-title" style="font-size: 1.5rem; font-weight: 600; color: #333;"> 
+                                <!-- Add title here, if needed -->
                             </h5>
-                            <p class="card-text">{{ post.short_text }}</p>
+                            <p class="card-text" style="color: #555; line-height: 1.6;">{{ post.text|safe }}</p>
                         </div>
                     </div>
                     {% endfor %}

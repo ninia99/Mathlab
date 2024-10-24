@@ -14,11 +14,8 @@ class Category(models.Model):
 
 
 class Post(models.Model):
-    description = models.TextField()
-    title = models.CharField(max_length=250)
-    image = models.ImageField(upload_to='about/')
-    short_text = models.TextField()
-    category = models.ForeignKey("Category", related_name="posts", on_delete=models.CASCADE, null=True)
+    title = models.CharField(null=True)
+    text = models.TextField(null=True)
     position = models.IntegerField(default=0, null=True)
 
     def __str__(self):

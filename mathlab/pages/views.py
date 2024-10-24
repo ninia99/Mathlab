@@ -1,7 +1,6 @@
 from django.contrib import messages
 from django.urls import reverse_lazy
 from django.views import generic
-from django.db import models
 from .models import Post, Contact, Abouts, Logo, Source
 from django.core.mail import send_mail
 from django.http import HttpResponseRedirect
@@ -76,15 +75,15 @@ class DemoView(generic.TemplateView):
         return context
 
 
-class DownloadView(generic.TemplateView):
-    template_name = 'home/download.html'
+# class DownloadView(generic.TemplateView):
+#    template_name = 'home/download.html'
 
-    def get_context_data(self, **kwargs):
-        context = {
-            'download': Download.objects.first()
-        }
+#    def get_context_data(self, **kwargs):
+#        context = {
+#            'download': Download.objects.first()
+#        }
 
-        return context
+#        return context
 
 
 class SourceView(generic.TemplateView):
@@ -95,4 +94,3 @@ class SourceView(generic.TemplateView):
             'source_object': Source.objects.order_by('position')
         }
         return context
-

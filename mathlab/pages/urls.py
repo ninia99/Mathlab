@@ -1,6 +1,5 @@
 from django.urls import path
-from . views import IndexView, ContactView, PostDetailView, AboutView, DemoView, DownloadView, SourceView
-
+from .views import IndexView, ContactView, PostDetailView, AboutView, DemoView, SourceView
 
 urlpatterns = [
     path("", IndexView.as_view(), name="index"),
@@ -8,6 +7,6 @@ urlpatterns = [
     path("contact/", ContactView.as_view(), name="contact"),
     path("about/", AboutView.as_view(), name="about"),
     path("demo/", DemoView.as_view(), name="demo"),
-    path("download/", DownloadView.as_view(), name="download"),
     path("source/", SourceView.as_view(), name="source")
+    # path("download/", DownloadView.as_view(), name="download"),
 ]
