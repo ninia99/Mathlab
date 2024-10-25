@@ -6,7 +6,8 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('pages', '0028_delete_download'),
+        #('pages', '0028_delete_download'),
+        ('pages', '0028_merge_0022_delete_download_0027_source_position'),
     ]
 
     operations = [

@@ -10,9 +10,9 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AddField(
-            model_name='post',
-            name='position',
-            field=models.IntegerField(default=0, null=True),
-        ),
+#        migrations.AddField(
+#            model_name='post',
+#            name='position',
+#            field=models.IntegerField(default=0, null=True),
+#        ),
     ]
