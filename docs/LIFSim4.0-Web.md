@@ -40,9 +40,9 @@
   
 # Server 
 ### when someone make changes on local it has to be pushed first of all on local side and afterward, it has to be pulled
-### on the server side. second step ist to make migration if something is changed in the code (Mathlab/mathlab/pages/models.py)
+### on the server side. second step is to make migration if something is changed in the code (Mathlab/mathlab/pages/models.py)
 ### this migration happens first in local and after on server. Do not forget if model is changed, it has to be migrated and after push.
-### on the server this changing has to be pulled. after you need to make migrations. it is also important to restart systemctl
+### on the server this changing has to be pulled. it is also important to restart systemctl
 ### and be sure that it is active and running. In order to start server, use this command: bash /src/lifsim/deployment/uwsgi_start.sh &
 ### passwords are stored in keepassXC on local.
 
@@ -70,7 +70,7 @@
 ``` bash
    git pull
    python manage.py migrate
-   python manage.py makemigrations
+   
    ```
 
 ``` bash
@@ -88,7 +88,7 @@
 ### insert user and password there.
 ### if admin wants to change posts in about, there is summernote for that, you can give even position to the posts
 ### Contact page is static
-### Logos is dynamical, it means admin can upload logos from admin panel, but if you need to see that logo on live, there is command collectstatics, it has to be run on server
+### Logos is dynamical, it means admin can upload logos from admin panel, but if you need to see that logo on live, there is command collectstatics <----(try this if you do not see changing), it has to be run on server
 ### posts page has description, title, image, short_text, category, admin can manually  upload info from there.
 ### sources and abouts pages, they do have same structure.
-### Titles: there admin can change title, sub_title and image of background.
+### Titles: there admin can change title, sub_title and image of background of web-site.
